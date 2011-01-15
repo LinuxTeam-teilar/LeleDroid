@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/LL1"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="wrap_content"
+	android:gravity="center_horizontal" android:background="@layout/tooltip"
+	android:layout_height="wrap_content" xmlns:android1="http://schemas.android.com/apk/res/android"
+	 android:padding="15dip">
+	<LinearLayout android:orientation="horizontal" android:layout_margin="2dip"
+		android:padding="5dip" android:gravity="center" android:background="#00FF00"
+		android:layout_width="wrap_content" android:layout_height="wrap_content">
+		<TextView android:id="@+id/ipiretithike" android:text="@string/ipiretithike"
+			android:layout_width="wrap_content" android:textColor="#000000"
+			android:textStyle="bold" android:layout_height="wrap_content"></TextView>
+<!--		<TextView android:id="@+id/meresPan" android:text="0"-->
+<!--			android:layout_width="wrap_content" android:textColor="#000000"-->
+<!--			android:textStyle="bold" android:layout_height="wrap_content"></TextView>-->
+	</LinearLayout>
+	<LinearLayout android:orientation="horizontal" android:layout_margin="2dip"
+		android:padding="5dip" android:gravity="center" android:background="#FF0000"
+		android:layout_width="wrap_content" android:layout_height="wrap_content">
+		<TextView android:id="@+id/ipolipo" android:text="@string/ipolipo"
+			android:textColor="#000000" android:textStyle="bold"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<!--		<TextView android:id="@+id/meresAkoma" android:text="0"-->
+<!--			android:layout_width="wrap_content" android:textColor="#000000"-->
+<!--			android:textStyle="bold" android:layout_height="wrap_content"></TextView>-->
+	</LinearLayout>
+	<LinearLayout android:orientation="horizontal" android:layout_margin="2dip"
+		android:padding="5dip" android:background="#0000FF" android:gravity="center"
+		android:layout_width="wrap_content" android:layout_height="wrap_content">
+		<TextView android:id="@+id/adeia" android:text="@string/adeia"
+			android:textColor="#000000" android:textStyle="bold"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<!--		<TextView android:id="@+id/meresAdeias" android:text="0"-->
+<!--			android:layout_width="wrap_content" android:textColor="#000000"-->
+<!--			android:textStyle="bold" android:layout_height="wrap_content"></TextView>-->
+	</LinearLayout>
+</LinearLayout>

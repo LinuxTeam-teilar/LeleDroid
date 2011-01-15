@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="opla">
+		<item>"Πεζικό"</item>
+		<item>"Πυροβολικό"</item>
+		<item>"Τεθωρακισμένα"</item>
+		<item>"Μηχανικό"</item>
+		<item>"Διαβιβάσεις"</item>
+		<item>"Αεροπορία_Στρατού"</item>
+		<item>"Εφοδιασμού_Μεταφορών"</item>
+		<item>"Υλικού_Πολέμου"</item>
+		<item>"Τεχνικό"</item>
+		<item>"Υγειονομικό"</item>
+	</string-array>
+</resources>

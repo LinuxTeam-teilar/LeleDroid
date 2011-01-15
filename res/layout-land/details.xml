@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/LinearLayout01"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical">
+	<TextView android:id="@+id/onoma" android:text="ONOMA STRATIOTI"
+		android:layout_width="fill_parent"
+		android:gravity="center_horizontal" android:layout_height="wrap_content" android:layout_margin="8dip"></TextView>
+	<LinearLayout android:layout_width="fill_parent"
+		android:orientation="horizontal" android:layout_height="wrap_content"
+		android:id="@+id/LinearLayout02">
+		<LinearLayout android:id="@+id/Linear1" android:gravity="center_horizontal"
+			android:layout_width="160dip" android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<ImageView android:id="@+id/vathmosImg" android:src="@drawable/img1"
+				android:gravity="center_horizontal" android:layout_width="100dip"
+				android:layout_height="100dip" android:scaleType="fitCenter"></ImageView>
+			<LinearLayout android:id="@+id/pieChart"
+				android:layout_height="160dip" android:gravity="top"
+				android:layout_width="wrap_content">
+			</LinearLayout>
+		</LinearLayout>
+
+		<LinearLayout android:id="@+id/Linear1" android:gravity="center_horizontal"
+			android:layout_width="fill_parent" android:orientation="vertical" android:layout_height="fill_parent">
+			<!-- SECONDS -->
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:id="@+id/secs_label" android:text="@string/secs"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				<LinearLayout android:layout_width="fill_parent"
+					android:gravity="right" android:layout_height="wrap_content">
+					<TextView android:id="@+id/secs" android:text="0"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</LinearLayout>
+
+			<!-- MINUTES -->
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:id="@+id/mins_label" android:text="@string/mins"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				<LinearLayout android:layout_width="fill_parent"
+					android:gravity="right" android:layout_height="wrap_content">
+					<TextView android:id="@+id/mins" android:text="0"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</LinearLayout>
+
+			<!-- HOURS -->
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:id="@+id/hours_label" android:text="@string/hours"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				<LinearLayout android:layout_width="fill_parent"
+					android:gravity="right" android:layout_height="wrap_content">
+					<TextView android:id="@+id/hours" android:text="0"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</LinearLayout>
+
+			<!-- DAYS -->
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:id="@+id/days_label" android:text="@string/days"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				<LinearLayout android:layout_width="fill_parent"
+					android:gravity="right" android:layout_height="wrap_content">
+					<TextView android:id="@+id/days" android:text="0"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</LinearLayout>
+
+			<!-- WEEKS -->
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:id="@+id/weeks_label" android:text="@string/weeks"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				<LinearLayout android:layout_width="fill_parent"
+					android:gravity="right" android:layout_height="wrap_content">
+					<TextView android:id="@+id/weeks" android:text="0"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</LinearLayout>
+
+			<!-- MONTHS -->
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:id="@+id/months_label" android:text="@string/months"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				<LinearLayout android:layout_width="fill_parent"
+					android:gravity="right" android:layout_height="wrap_content">
+					<TextView android:id="@+id/months" android:text="0"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</LinearLayout>
+
+			<!-- POSOSTO -->
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:id="@+id/pososto_label" android:text="@string/pososto"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				<LinearLayout android:layout_width="fill_parent"
+					android:gravity="right" android:layout_height="wrap_content">
+					<TextView android:id="@+id/pososto" android:text="0%"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+				</LinearLayout>
+			</LinearLayout>
+
+			<!-- PROGRESS BAR -->
+
+			<LinearLayout android:gravity="center"
+				android:layout_height="wrap_content" android:layout_width="fill_parent"
+				android:orientation="vertical">
+				<ProgressBar android:layout_width="fill_parent"
+					android:layout_height="wrap_content" style="?android:attr/progressBarStyleHorizontal"
+					android:id="@+id/posostoProgress" android:max="100"
+					android:layout_margin="7dip"
+					android:progress="0" />
+			</LinearLayout>
+			<LinearLayout android:layout_height="wrap_content"
+				android:layout_width="fill_parent" android:orientation="horizontal" android:gravity="center_horizontal">
+				<Button android:layout_height="wrap_content" android:onClick="deleteButtonClicked" android:id="@+id/delButton" android:layout_width="102dip" android:text="@string/delete"></Button><Button android:layout_height="wrap_content" android:onClick="editButtonClicked" android:id="@+id/editButton" android:layout_width="102dip" android:text="@string/edit"></Button>
+				<Button android:layout_height="wrap_content" android:onClick="backButtonClicked" android:id="@+id/backButton" android:layout_width="102dip" android:text="@string/back"></Button>
+				
+			
+
+
+</LinearLayout>
+
+		</LinearLayout>
+	</LinearLayout>
+
+
+
+</LinearLayout>    
