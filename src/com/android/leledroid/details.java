@@ -73,7 +73,8 @@ public class details extends Activity {
 	}
 
 	public class MyCount extends CountDownTimer {
-		int counter = 0;
+		int secs = 0;
+		int mins = 0;
 
 		public MyCount(long millisInFuture, long countDownInterval) {
 			super(millisInFuture, countDownInterval);
@@ -92,11 +93,17 @@ public class details extends Activity {
 
 		public void onTick(long millisUntilFinished) {
 			secondsTv.setText("" + millisUntilFinished / 1000);
-			counter++;
-			if (counter > 59) {
-				counter = 0;
+			secs++;
+			if (secs > 59) {
+				secs = 0;
+				mins++;
 				minutesTv.setText(""
 						+ (Integer.parseInt((String) minutesTv.getText()) - 1));
+				if (mins > 59){
+					mins = 0;
+					hoursTv.setText(""
+							+ (Integer.parseInt((String) hoursTv.getText()) - 1));
+				}
 			}
 		}
 	}

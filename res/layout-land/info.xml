@@ -5,35 +5,44 @@
 	<ImageView android:id="@+id/infoImage" android:src="@drawable/icon"
 		android:layout_margin="4dip" android:layout_width="wrap_content"
 		android:layout_height="wrap_content"></ImageView>
+		
+	<!-- APP NAME -->
 
 	<LinearLayout android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:gravity="center_horizontal">
 		<TextView android:text="@string/app_name" android:textSize="15sp"
-			android:layout_margin="5dip" android:textStyle="bold"
+			android:layout_margin="4dip" android:textStyle="bold"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-		<TextView android:text="@string/ver" android:layout_margin="5dip" android:textStyle="italic"
-			android:gravity="center" android:layout_width="wrap_content"
-			android:layout_height="wrap_content"></TextView>
+		<TextView android:text="@string/ver" android:layout_margin="4dip"
+			android:textStyle="italic" android:gravity="center"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+
+	<!-- DESCRIPTION -->
+
 	</LinearLayout>
-
-
-
 	<TextView android:text="@string/description" android:gravity="center_horizontal"
-		android:layout_margin="5dip" android:layout_width="wrap_content"
+		android:layout_margin="4dip" android:layout_width="wrap_content"
 		android:layout_height="wrap_content"></TextView>
 
-
+	<!-- COPYRIGHT -->
 
 	<TextView android:text="@string/copyright"
 		android:layout_margin="4dip" android:layout_width="wrap_content"
 		android:layout_height="wrap_content"></TextView>
+
+	<!-- CONTACT -->
+
 	<TextView android:text="@string/contact" android:id="@+id/contact"
 		android:layout_margin="2dip" android:layout_width="wrap_content"
 		android:layout_height="wrap_content"></TextView>
+		
+	<!-- SITE -->
 
 	<TextView android:text="@string/site" android:layout_margin="2dip"
 		android:id="@+id/site" android:layout_width="wrap_content"
 		android:layout_height="wrap_content"></TextView>
+		
+	<!-- BUTTONS -->
 
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_margin="5dip" android:orientation="horizontal"
@@ -42,8 +51,8 @@
 		<Button android:text="@string/licence" android:id="@+id/licenceButton"
 			android:onClick="licenceButtonClicked" android:layout_width="110dip"
 			android:layout_height="wrap_content"></Button>
-		<Button android:text="@string/back" android:id="@+id/backButton"
-			android:onClick="backButtonClicked" android:layout_width="110dip"
+		<Button android:text="@string/donate" android:id="@+id/donateButton"
+			android:onClick="donateButtonClicked" android:layout_width="110dip"
 			android:layout_height="wrap_content"></Button>
 	</LinearLayout>
 </LinearLayout>

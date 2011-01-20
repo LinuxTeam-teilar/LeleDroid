@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -52,15 +54,16 @@ public class info extends Activity {
 
 	}
 
-	public void backButtonClicked(View v) {
-		finish();
+	public void donateButtonClicked(View v) {
+	    Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=M5HYBKFQYS84S&lc=GR&item_name=Donation%20to%20LeleDroid%20application&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted") );
+	    startActivity(browse);
 	}
 
 	public void licenceButtonClicked(View v) {
 		AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
 		alertbox.setMessage(getResources().getString(R.string.licenceText))
-				.setTitle("GNU GPLv3");
-		alertbox.setNeutralButton(getResources().getString(R.string.ok_but),
+				.setTitle(getResources().getString(R.string.licence));
+		alertbox.setNeutralButton(getResources().getString(R.string.back),
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface arg0, int arg1) {
 					}

@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="ver">1.01</string>
+	<string name="ver">1.1</string>
 	<string name="app_name">LeleDroid</string>
 	<string name="add">Add soldier</string>
 	<string name="addForm">Soldier details</string>
 	<string name="str_name_tv">Name</string>
 	<string name="str_indate_tv">Start date</string>
 	<string name="str_outdate_tv">End date</string>
-	<string name="str_indate_tvL">Start</string>
-	<string name="str_outdate_tvL">End</string>
 	<string name="str_adeia_tv">Days off</string>
 	<string name="str_filaki_tv">Extra days</string>
-	<string name="ok_but">Add</string>
+	<string name="str_oplo_tv">Army corps</string>
+	<string name="str_name_tv_short">Name</string>
+	<string name="str_indate_tv_short">Start</string>
+	<string name="str_outdate_tv_short">End</string>
+	<string name="str_adeia_tv_short">Days off</string>
+	<string name="str_filaki_tv_short">Extra days</string>
+	<string name="str_oplo_tv_short">Army corps</string>
+	<string name="ok_but">Ok</string>
 	<string name="cancel_but">Cancel</string>
 	<string name="infoButton">Information</string>
 	<string name="back">Back</string>
+	<string name="donate">Donate</string>
 	<string name="ipiretithike">Days served</string>
 	<string name="ipolipo">Remaining days</string>
 	<string name="adeia">Days off</string>
-	<string name="str_oplo_tv">Army corps</string>
 	<string name="oploSpinner">Select army corps</string>
 	<string name="selectStr">Select soldier : </string>
 	<string name="details">Soldier details</string>
