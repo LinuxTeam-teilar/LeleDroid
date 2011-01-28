@@ -3,7 +3,7 @@
 	<string name="ver">1.1</string>
 	<string name="app_name">LeleDroid</string>
 	<string name="add">Προσθήκη στρατιώτη</string>
-	<string name="addForm">Στρατιώτης</string>
+	<string name="propertiesFormTitle">Στρατιώτης</string>
 	<string name="str_name_tv">Όνομα στρατιώτη</string>
 	<string name="str_indate_tv">Ημερομηνία κατάταξης</string>
 	<string name="str_outdate_tv">Ημερομηνία απόλυσης</string>

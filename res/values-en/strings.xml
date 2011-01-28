@@ -3,7 +3,7 @@
 	<string name="ver">1.1</string>
 	<string name="app_name">LeleDroid</string>
 	<string name="add">Add soldier</string>
-	<string name="addForm">Soldier details</string>
+	<string name="propertiesFormTitle">Soldier details</string>
 	<string name="str_name_tv">Name</string>
 	<string name="str_indate_tv">Start date</string>
 	<string name="str_outdate_tv">End date</string>

@@ -4,8 +4,8 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical">
 	<TextView android:id="@+id/onoma" android:text="ONOMA STRATIOTI"
-		android:layout_width="fill_parent"
-		android:gravity="center_horizontal" android:layout_height="wrap_content" android:layout_margin="8dip"></TextView>
+		android:layout_width="fill_parent" android:gravity="center_horizontal"
+		android:layout_height="wrap_content" android:layout_margin="8dip"></TextView>
 	<LinearLayout android:layout_width="fill_parent"
 		android:orientation="horizontal" android:layout_height="wrap_content"
 		android:id="@+id/LinearLayout02">
@@ -23,117 +23,115 @@
 		</LinearLayout>
 
 		<LinearLayout android:id="@+id/Linear1" android:gravity="center_horizontal"
-			android:layout_width="fill_parent" android:orientation="vertical" android:layout_height="fill_parent">
+			android:layout_width="fill_parent" android:orientation="vertical"
+			android:layout_height="fill_parent">
 			<!-- SECONDS -->
 
-			<LinearLayout android:layout_width="fill_parent"
+			<RelativeLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="horizontal">
 				<TextView android:id="@+id/secs_label" android:text="@string/secs"
+					android:layout_marginLeft="7dip" android:layout_width="wrap_content"
+					android:layout_alignParentLeft="true" android:layout_height="wrap_content"></TextView>
+
+				<TextView android:id="@+id/secs" android:text="0"
+					android:layout_marginRight="10dip" android:layout_alignParentRight="true"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				<LinearLayout android:layout_width="fill_parent"
-					android:gravity="right" android:layout_height="wrap_content">
-					<TextView android:id="@+id/secs" android:text="0"
-						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				</LinearLayout>
-			</LinearLayout>
+
+			</RelativeLayout>
 
 			<!-- MINUTES -->
 
-			<LinearLayout android:layout_width="fill_parent"
-				android:layout_height="wrap_content" android:orientation="horizontal">
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_alignParentLeft="true" android:layout_height="wrap_content"
+				android:orientation="horizontal">
 				<TextView android:id="@+id/mins_label" android:text="@string/mins"
+					android:layout_marginLeft="7dip" android:layout_alignParentLeft="true"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				<LinearLayout android:layout_width="fill_parent"
-					android:gravity="right" android:layout_height="wrap_content">
-					<TextView android:id="@+id/mins" android:text="0"
-						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				</LinearLayout>
-			</LinearLayout>
+				<TextView android:id="@+id/mins" android:text="0"
+					android:layout_marginRight="10dip" android:layout_alignParentRight="true"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+			</RelativeLayout>
 
 			<!-- HOURS -->
 
-			<LinearLayout android:layout_width="fill_parent"
+			<RelativeLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="horizontal">
 				<TextView android:id="@+id/hours_label" android:text="@string/hours"
+					android:layout_alignParentLeft="true" android:layout_width="wrap_content"
+					android:layout_marginLeft="7dip" android:layout_height="wrap_content"></TextView>
+				<TextView android:id="@+id/hours" android:text="0"
+					android:layout_marginRight="10dip" android:layout_alignParentRight="true"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				<LinearLayout android:layout_width="fill_parent"
-					android:gravity="right" android:layout_height="wrap_content">
-					<TextView android:id="@+id/hours" android:text="0"
-						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				</LinearLayout>
-			</LinearLayout>
+			</RelativeLayout>
 
 			<!-- DAYS -->
 
-			<LinearLayout android:layout_width="fill_parent"
+			<RelativeLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="horizontal">
 				<TextView android:id="@+id/days_label" android:text="@string/days"
+					android:layout_marginLeft="7dip" android:layout_alignParentLeft="true"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				<LinearLayout android:layout_width="fill_parent"
-					android:gravity="right" android:layout_height="wrap_content">
-					<TextView android:id="@+id/days" android:text="0"
-						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				</LinearLayout>
-			</LinearLayout>
+				<TextView android:id="@+id/days" android:text="0"
+					android:layout_marginRight="10dip" android:layout_alignParentRight="true"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+			</RelativeLayout>
 
 			<!-- WEEKS -->
 
-			<LinearLayout android:layout_width="fill_parent"
+			<RelativeLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="horizontal">
 				<TextView android:id="@+id/weeks_label" android:text="@string/weeks"
+					android:layout_marginLeft="7dip" android:layout_alignParentLeft="true"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				<LinearLayout android:layout_width="fill_parent"
-					android:gravity="right" android:layout_height="wrap_content">
-					<TextView android:id="@+id/weeks" android:text="0"
-						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				</LinearLayout>
-			</LinearLayout>
+				<TextView android:id="@+id/weeks" android:text="0"
+					android:layout_marginRight="10dip" android:layout_alignParentRight="true"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+			</RelativeLayout>
 
 			<!-- MONTHS -->
-			<LinearLayout android:layout_width="fill_parent"
+
+			<RelativeLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="horizontal">
 				<TextView android:id="@+id/months_label" android:text="@string/months"
+					android:layout_marginLeft="7dip" android:layout_alignParentLeft="true"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				<LinearLayout android:layout_width="fill_parent"
-					android:gravity="right" android:layout_height="wrap_content">
-					<TextView android:id="@+id/months" android:text="0"
-						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				</LinearLayout>
-			</LinearLayout>
+				<TextView android:id="@+id/months" android:text="0"
+					android:layout_marginRight="10dip" android:layout_alignParentRight="true"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+			</RelativeLayout>
 
 			<!-- POSOSTO -->
 
-			<LinearLayout android:layout_width="fill_parent"
+			<RelativeLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="horizontal">
 				<TextView android:id="@+id/pososto_label" android:text="@string/pososto"
+					android:layout_marginLeft="7dip" android:layout_alignParentLeft="true"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				<LinearLayout android:layout_width="fill_parent"
-					android:gravity="right" android:layout_height="wrap_content">
-					<TextView android:id="@+id/pososto" android:text="0%"
-						android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-				</LinearLayout>
-			</LinearLayout>
+				<TextView android:id="@+id/pososto" android:text="0%"
+					android:layout_marginRight="10dip" android:layout_alignParentRight="true"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+			</RelativeLayout>
 
 			<!-- PROGRESS BAR -->
 
-			<LinearLayout android:gravity="center"
-				android:layout_height="wrap_content" android:layout_width="fill_parent"
-				android:orientation="vertical">
-				<ProgressBar android:layout_width="fill_parent"
-					android:layout_height="wrap_content" style="?android:attr/progressBarStyleHorizontal"
-					android:id="@+id/posostoProgress" android:max="100"
-					android:layout_margin="7dip"
-					android:progress="0" />
-			</LinearLayout>
-			<LinearLayout android:layout_height="wrap_content"
-				android:layout_width="fill_parent" android:orientation="horizontal" android:gravity="center_horizontal">
-				<Button android:layout_height="wrap_content" android:onClick="deleteButtonClicked" android:id="@+id/delButton" android:layout_width="102dip" android:text="@string/delete"></Button><Button android:layout_height="wrap_content" android:onClick="editButtonClicked" android:id="@+id/editButton" android:layout_width="102dip" android:text="@string/edit"></Button>
-				<Button android:layout_height="wrap_content" android:onClick="backButtonClicked" android:id="@+id/backButton" android:layout_width="102dip" android:text="@string/back"></Button>
-				
-			
+			<ProgressBar android:layout_width="fill_parent"
+				android:layout_height="wrap_content" style="?android:attr/progressBarStyleHorizontal"
+				android:id="@+id/posostoProgress" android:max="100"
+				android:progress="20" android:layout_margin="4dip" />
 
+			<!-- BUTTONS -->
 
-</LinearLayout>
+			<RelativeLayout android:layout_height="wrap_content"
+				android:layout_margin="2dip" android:layout_width="fill_parent"
+				android:orientation="horizontal">
+				<Button android:text="@string/delete" android:id="@+id/delButton"
+					android:onClick="deleteButtonClicked" android:layout_height="wrap_content"
+					android:layout_width="105dip" android:layout_alignParentLeft="true"></Button>
+				<Button android:layout_height="wrap_content" android:onClick="editButtonClicked"
+					android:id="@+id/editButton" android:layout_width="105dip"
+					android:layout_marginRight="8dip" android:text="@string/edit"
+					android:layout_alignParentRight="true"></Button>
+			</RelativeLayout>
 
 		</LinearLayout>
 	</LinearLayout>
