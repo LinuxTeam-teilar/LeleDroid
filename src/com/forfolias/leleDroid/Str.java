@@ -12,12 +12,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
 import android.util.Log;
-
 
 @SuppressWarnings({ "rawtypes", "serial" })
 public class Str extends HashMap {
@@ -26,18 +24,18 @@ public class Str extends HashMap {
 
 	private static String dataFile = "/sdcard/leleDroid.txt";
 	private static String TAG = "leleDroid";
-	
+
 	public static String KEY_NAME = "name";
 	public static String KEY_DATE = "date";
-	
+
 	@Override
 	public String get(Object k) {
-	  String key = (String) k;
-	  if (KEY_NAME.equals(key))
-	    return name;
-	  else if (KEY_DATE.equals(key))
-	    return dateOut;
-	  return null;
+		String key = (String) k;
+		if (KEY_NAME.equals(key))
+			return name;
+		else if (KEY_DATE.equals(key))
+			return dateOut;
+		return null;
 	}
 
 	Str() {
@@ -52,7 +50,7 @@ public class Str extends HashMap {
 		this.setDateOut(date2);
 		this.setAdeia(ad);
 		this.setFilaki(fi);
-	}	
+	}
 
 	public String getName() {
 		return this.name;
@@ -159,9 +157,9 @@ public class Str extends HashMap {
 	}
 
 	public String toString() {
-		return this.getId() + " * " + this.getName() + " * " + this.getDateIn()
-				+ " * " + this.getDateOut() + " * " + this.getAdeia() + " * "
-				+ this.getFilaki();
+		return this.getId() + " * " + this.getName().replace(' ', '_') + " * "
+				+ this.getDateIn() + " * " + this.getDateOut() + " * "
+				+ this.getAdeia() + " * " + this.getFilaki();
 	}
 
 	public void setStr(String nam, String d1, String d2, Integer ad, Integer fi) {
@@ -220,16 +218,15 @@ public class Str extends HashMap {
 				out.close();
 			}
 		} catch (java.io.FileNotFoundException e) {
-			Log.e(TAG,
-					"writeStr FileNotFoundException error : "
+			Log.e(TAG, "writeStr FileNotFoundException error : "
 							+ e.getLocalizedMessage());
 		} catch (IOException e) {
 			Log.e(TAG, "writeStr IOException : " + e.getLocalizedMessage());
 		}
 
-		String data = this.id + " * " + this.name + " * " + this.dateIn + " * "
-				+ this.dateOut + " * " + this.adeia + " * " + this.filaki
-				+ "\n";
+		String data = this.id + " * " + this.name.replace(' ', '_') + " * "
+				+ this.dateIn + " * " + this.dateOut + " * " + this.adeia
+				+ " * " + this.filaki + "\n";
 
 		try {
 			BufferedWriter out = new BufferedWriter(new FileWriter(dataFile,
@@ -241,17 +238,18 @@ public class Str extends HashMap {
 		}
 		correctData();
 	}
-	
-	public boolean delete(){
-		if(deleteStrFromId(this.getId()))
+
+	public boolean delete() {
+		if (deleteStrFromId(this.getId()))
 			return true;
 		return false;
 	}
 
 	public static boolean deleteStrFromId(Integer num) {
 		String line = null;
-		
-		if(getLengh() == 0) return false;
+
+		if (getLengh() == 0)
+			return false;
 
 		/* Copy data.txt to data.tmp.txt without the line with id num */
 
@@ -310,44 +308,4 @@ public class Str extends HashMap {
 		tmp.renameTo(txt);
 	}
 
-	public static void sortData() {
-		String line = null;
-		List<String> listOfItems = null;
-
-		/* Read text file and store it at an Array */
-
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(dataFile));
-			listOfItems = new ArrayList<String>();
-			while ((line = reader.readLine()) != null) {
-				listOfItems.add(line);
-			}
-			reader.close();
-		} catch (Exception e) {
-			Log.e(TAG, "Sort Error A : " + e.getLocalizedMessage());
-		}
-
-		/* Sort the array */
-
-		Collections.sort(listOfItems);
-
-		/* Write the sorted array at the data.tmp.txt */
-
-		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter(dataFile
-					+ ".tmp", true));
-			for (String item : listOfItems) {
-				out.write(item + "\n");
-			}
-			out.close();
-		} catch (IOException e) {
-			Log.e(TAG, "Sort Error B : " + e.getLocalizedMessage());
-		}
-
-		/* Rename data.tmp.txt to data.txt */
-
-		File tmp = new File(dataFile + ".tmp");
-		File txt = new File(dataFile);
-		tmp.renameTo(txt);
-	}
 }
