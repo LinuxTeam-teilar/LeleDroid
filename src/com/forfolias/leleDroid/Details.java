@@ -1,8 +1,6 @@
 package com.forfolias.leleDroid;
 
 import java.util.GregorianCalendar;
-import java.util.TimeZone;
-
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 import org.achartengine.model.CategorySeries;
@@ -56,7 +54,7 @@ public class Details extends Activity {
 		monthsTv = (TextView) findViewById(R.id.months);
 		posostoPB = (ProgressBar) findViewById(R.id.posostoProgress);
 		posostoTv = (TextView) findViewById(R.id.pososto);
-		
+
 		setLabels();
 
 		MyCount counter = new MyCount(Long.parseLong((String) secondsTv
@@ -102,61 +100,26 @@ public class Details extends Activity {
 	}
 
 	public void setLabels() {
-
-		GregorianCalendar dateIn = new GregorianCalendar(
-				TimeZone.getTimeZone("Europe/Athens"));
-		GregorianCalendar dateOut = new GregorianCalendar(
-				TimeZone.getTimeZone("Europe/Athens"));
-		GregorianCalendar dateCur = new GregorianCalendar(
-				TimeZone.getTimeZone("Europe/Athens"));
-
-		Integer year = Integer.parseInt(str.getDateIn().split("/")[2]);
-		Integer month = Integer.parseInt(str.getDateIn().split("/")[1]);
-		Integer day = Integer.parseInt(str.getDateIn().split("/")[0]);
-		dateIn.set(year, month - 1, day, 12, 00, 00);
-
-		year = Integer.parseInt(str.getDateOut().split("/")[2]);
-		month = Integer.parseInt(str.getDateOut().split("/")[1]);
-		day = Integer.parseInt(str.getDateOut().split("/")[0]);
-		dateOut.set(year, month - 1, day, 00, 00, 01);
-
-		dateCur = (GregorianCalendar) GregorianCalendar.getInstance();
-
-		dateOut = setFilakes(dateIn, dateOut, str.getFilaki());
-
-		long total = Math.abs(dateOut.getTimeInMillis()
-				- dateIn.getTimeInMillis()) / 1000;
-		long rest = Math.abs(dateOut.getTimeInMillis()
-				- dateCur.getTimeInMillis()) / 1000;
-		long past = Math.abs(dateIn.getTimeInMillis()
-				- dateCur.getTimeInMillis()) / 1000;
-
-		Float totalPososto = (float) past * 100 / total;
-		if (totalPososto > 100){
-			totalPososto = (float) 100;
-			rest = 0;
-			past = total;
-		}
-		setName(totalPososto);
-		setPososto(totalPososto);
-		setRestOfTv(dateCur, dateOut);
-		setChart(str.getAdeia(), (int) (rest / (60 * 60 * 24)), (int) ( past / (60 * 60 * 24)));
-
+		setName(str.getPososto());
+		setPososto(str.getPososto());
+		setRestOfTv();
+		setChart(str.getAdeia(), str.getRestDays(), str.getPastDays());
 	}
 
-	public void setChart(Integer adeia, Integer ipiretisimoYpoloipo, Integer perasan) {
-		
-		if (adeia >= ipiretisimoYpoloipo){
+	public void setChart(Integer adeia, Integer ipiretisimoYpoloipo,
+			Integer perasan) {
+
+		if (adeia >= ipiretisimoYpoloipo) {
 			adeia = ipiretisimoYpoloipo;
 			ipiretisimoYpoloipo = 0;
-		}else{
-			ipiretisimoYpoloipo -= adeia;			
+		} else {
+			ipiretisimoYpoloipo -= adeia;
 		}
-		
+
 		if (perasan < 0) {
 			perasan = 0;
 		}
-		
+
 		if (ipiretisimoYpoloipo < 0) {
 			ipiretisimoYpoloipo = 0;
 			adeia = 0;
@@ -228,66 +191,10 @@ public class Details extends Activity {
 	}
 
 	public void setName(Float totalPososto) {
-
-		String vath = "";
 		ImageView img = (ImageView) findViewById(R.id.vathmosImg);
 
-		if (totalPososto < 8) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img1));
-			vath = "ΣΤΡΑΤΙΩΤΗΣ";
-		} else if (totalPososto < 14) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img2));
-			vath = "ΥΠΟΔΕΚΑΝΕΑΣ";
-		} else if (totalPososto < 20) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img3));
-			vath = "ΔΕΚΑΝΕΑΣ";
-		} else if (totalPososto < 22) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img4));
-			vath = "ΛΟΧΙΑΣ";
-		} else if (totalPososto < 28) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img5));
-			vath = "ΕΠΙΛΟΧΙΑΣ";
-		} else if (totalPososto < 34) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img6));
-			vath = "ΑΡΧΙΛΟΧΙΑΣ";
-		} else if (totalPososto < 40) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img7));
-			vath = "ΑΝΘΥΠΑΣΠΙΣΤΗΣ";
-		} else if (totalPososto < 45) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img8));
-			vath = "ΑΝΘΥΠΟΛΟΧΑΓΟΣ";
-		} else if (totalPososto < 50) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img9));
-			vath = "ΥΠΟΛΟΧΑΓΟΣ";
-		} else if (totalPososto < 56) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img10));
-			vath = "ΛΟΧΑΓΟΣ";
-		} else if (totalPososto < 62) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img11));
-			vath = "ΤΑΓΜΑΤΑΡΧΗΣ";
-		} else if (totalPososto < 68) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img12));
-			vath = "ΑΝΤΙΣΥΝΤΑΓΜΑΤΑΡΧΗΣ";
-		} else if (totalPososto < 73) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img13));
-			vath = "ΣΥΝΤΑΓΜΑΤΑΡΧΗΣ";
-		} else if (totalPososto < 79) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img14));
-			vath = "ΤΑΞΙΑΡΧΟΣ";
-		} else if (totalPososto < 85) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img15));
-			vath = "ΥΠΟΣΤΡΑΤΗΓΟΣ";
-		} else if (totalPososto < 91) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img16));
-			vath = "ΑΝΤΙΣΤΡΑΤΗΓΟΣ";
-		} else if (totalPososto < 97) {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img17));
-			vath = "ΣΤΡΑΤΗΓΟΣ";
-		} else {
-			img.setImageDrawable(getResources().getDrawable(R.drawable.img18));
-			vath = "ΠΟΛΙΤΗΣ";
-		}
-		nameTv.setText(vath + " " + str.getName());
+		img.setImageDrawable(getResources().getDrawable(str.getImg()));
+		nameTv.setText(str.getVathmo() + " " + str.getName());
 	}
 
 	public void setPososto(Float totalPososto) {
@@ -297,13 +204,13 @@ public class Details extends Activity {
 		posostoTv.setText(totalPososto.intValue() + "%");
 	}
 
-	public void setRestOfTv(GregorianCalendar dateCur, GregorianCalendar dateOut) {
+	public void setRestOfTv() {
 
-		Long seconds = (long) (dateOut.getTimeInMillis()
-				- dateCur.getTimeInMillis()) / 1000;
-		if (seconds < 0) seconds = (long) 0; 
-		Long minutes  = (long) seconds / 60;
-		Long hours    = (long) seconds / (60 * 60);
+		Long seconds = str.getRestSeconds();
+		if (seconds < 0)
+			seconds = (long) 0;
+		Long minutes = (long) seconds / 60;
+		Long hours = (long) seconds / (60 * 60);
 		Integer meres = (int) (seconds / (60 * 60 * 24));
 
 		secondsTv.setText(Long.toString(seconds));

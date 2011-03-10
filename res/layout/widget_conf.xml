@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<TextView android:text="@string/widgetTitle" android:layout_margin="10dp"
+		android:id="@+id/widgetConfTitle" android:gravity="center"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
+	<LinearLayout android:id="@+id/LinearLayout08" 
+		android:layout_margin="6dip" android:gravity="center_vertical"
+		android:orientation="horizontal" android:layout_height="wrap_content"
+		android:layout_width="fill_parent">
+		<TextView android:text="@string/selectStr" android:layout_centerVertical="true"
+			android:id="@+id/widgetConfTitle" android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+		<Spinner android:layout_height="wrap_content" android:prompt="@string/selectStr" 
+			android:layout_width="fill_parent" android:id="@+id/strSpinner"></Spinner>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout08" 
+		android:layout_margin="15dip" android:gravity="center_horizontal"
+		android:orientation="horizontal" android:layout_height="wrap_content"
+		android:layout_width="fill_parent">
+		<Button android:text="@string/ok" android:id="@+id/ok" android:layout_margin="10dp"
+			android:layout_width="100dip" android:layout_height="wrap_content"></Button>
+	</LinearLayout>
+</LinearLayout>

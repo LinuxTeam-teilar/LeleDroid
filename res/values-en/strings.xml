@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="version">1.2</string>
+	<string name="version">1.3</string>
 	<string name="app_name">leleDroid</string>
 	<string name="info">Information</string>
 	<string name="str">Soldier</string>
 	<string name="add">Add soldier</string>
+	<string name="widgetTitle">leleDroid Widget Configuration</string>
 	<string name="selectStr">Select soldier : </string>
 
 	<string name="delete">Delete</string>
 	<string name="view">View</string>
 	<string name="edit">Edit</string>
-	
+
 	<string name="dateOut">End date</string>
 	<string name="dateIn">Start date</string>
 	<string name="strName">Name</string>
@@ -18,8 +19,8 @@
 	<string name="filaki">Extra days</string>
 	<string name="ipiretithike">Days served</string>
 	<string name="ipolipo">Remaining days</string>
-	
-	
+
+
 	<string name="details">Soldier details</string>
 	<string name="secs">Seconds...</string>
 	<string name="mins">Minutes...</string>
@@ -28,25 +29,31 @@
 	<string name="weeks">Weeks...</string>
 	<string name="months">Months...</string>
 	<string name="pososto">Percentage...</string>
-	
-	<string name="deleteMessage">Are you sure you want to delete the selected soldier?</string>
+	<string name="plusToday">plus today</string>
+
+	<string name="deleteMessage">Are you sure you want to delete the selected
+		soldier?</string>
 
 	<string name="ok">Ok</string>
 	<string name="cancel">Cancel</string>
 	<string name="back">Back</string>
-	
+
+	<string name="emptyList">There is no available soldier. Please add a soldier
+		at the leleDroid application</string>
 	<string name="emptyAdeia">Please fill in the days off</string>
 	<string name="emptyName">Please fill in the name of the soldier</string>
-	<string name="emptyFilaki">Please fill in the extra  days</string>
-	<string name="dateForward">Start date is ahead of end date. Please check the dates.</string>
-	
+	<string name="emptyFilaki">Please fill in the extra days</string>
+	<string name="dateForward">Start date is ahead of end date. Please check the
+		dates.</string>
+
 	<string name="donate">Donate</string>
 	<string name="contact">Contact :</string>
-	<string name="site">http://linuxteam.cs.teilar.gr/~forfolias/leleDroid
+	<string name="site">http://linuxteam.cs.teilar.gr/~forfolias/leleDroid/
 	</string>
 	<string name="copyright">Copyright (c) 2011 Βασιλάκος Γεώργιος</string>
-	<string name="description">LeleDroid displays information about 
-		the remaining military service of a soldier.</string>
+	<string name="description">LeleDroid displays information about
+		the remaining
+		military service of a soldier.</string>
 	<string name="licence">Licence</string>
 	<string name="licenceText">This program is free software: you can redistribute
 		it and/or modify

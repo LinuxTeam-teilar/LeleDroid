@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="version">1.2</string>
+	<string name="version">1.3</string>
 	<string name="app_name">leleDroid</string>
 	<string name="info">Πληροφορίες</string>
 	<string name="str">Στρατιώτης</string>
 	<string name="add">Προσθήκη στρατιώτη</string>
+	<string name="widgetTitle">Ρυθμίσεις του leleDroid widget</string>
 	<string name="selectStr">Επιλογή στρατιώτη : </string>
 
 	<string name="delete">Διαγραφή</string>
 	<string name="view">Προβολή</string>
 	<string name="edit">Επεξεργασία</string>
-	
+
 	<string name="dateOut">Ημερομηνία απόλυσης</string>
 	<string name="dateIn">Ημερομηνία κατάταξης</string>
 	<string name="strName">Όνομα στρατιώτη</string>
@@ -18,8 +19,8 @@
 	<string name="filaki">Ημέρες φυλακής</string>
 	<string name="ipiretithike">Ημέρες που υπηρετήθηκαν</string>
 	<string name="ipolipo">Ημέρες που απομένουν</string>
-	
-	
+
+
 	<string name="details">Λεπτομέρειες στρατιώτη</string>
 	<string name="secs">Δευτερόλεπτα...</string>
 	<string name="mins">Λεπτά...</string>
@@ -28,22 +29,25 @@
 	<string name="weeks">Εβδομάδες...</string>
 	<string name="months">Μήνες...</string>
 	<string name="pososto">Ποσοστό...</string>
-	
+	<string name="plusToday">και σήμερα</string>
+
 	<string name="deleteMessage">Να διαγραφεί ο επιλεγμένος στρατιώτης;</string>
 
 	<string name="ok">Εντάξει</string>
 	<string name="cancel">Άκυρο</string>
 	<string name="back">Επιστροφή</string>
-	
+
+	<string name="emptyList">Δεν υπάρχει κάποιος διαθέσιμος στρατιώτης. Παρακαλώ
+		προσθέστε κάποιον από την εφαρμογή leleDroid</string>
 	<string name="emptyAdeia">Παρακαλώ συμπληρώστε της ημέρες άδειας</string>
 	<string name="emptyName">Παρακαλώ συμπληρώστε το όνομα στρατιώτη</string>
 	<string name="emptyFilaki">Παρακαλώ συμπληρώστε τις ημέρες φυλακής</string>
 	<string name="dateForward">Η ημερομηνία κατάταξης είναι πιο μπροστά από την
 		ημερομηνία απόλυσης. Παρακαλώ διορθώστε.</string>
-	
+
 	<string name="donate">Δωρεά</string>
 	<string name="contact">Επικοινωνία :</string>
-	<string name="site">http://linuxteam.cs.teilar.gr/~forfolias/leleDroid
+	<string name="site">http://linuxteam.cs.teilar.gr/~forfolias/leleDroid/
 	</string>
 	<string name="copyright">Copyright (c) 2011 Βασιλάκος Γεώργιος</string>
 	<string name="description">Το leleDroid εμφανίζει πληροφορίες σχετικά με το

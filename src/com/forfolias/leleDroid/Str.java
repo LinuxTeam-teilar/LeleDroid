@@ -12,8 +12,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TimeZone;
 
 import android.util.Log;
 
@@ -75,6 +77,95 @@ public class Str extends HashMap {
 	public Integer getFilaki() {
 		return this.filaki;
 	}
+	
+	public Integer getRestDays(){
+		return (int) (getRestSeconds() / (60 * 60 * 24));
+	}
+	
+	public Integer getPastDays(){
+		return (int) (getPastSeconds() / (60 * 60 * 24));
+	}
+	
+	public Long getRestSeconds(){
+		GregorianCalendar dateO = new GregorianCalendar(
+				TimeZone.getTimeZone("Europe/Athens"));
+		GregorianCalendar dateC = new GregorianCalendar(
+				TimeZone.getTimeZone("Europe/Athens"));
+		
+		dateO.set(Integer.parseInt(dateOut.split("/")[2]),
+				  Integer.parseInt(dateOut.split("/")[1]) - 1,
+				  Integer.parseInt(dateOut.split("/")[0]),
+				  00, 00, 01);
+		
+		dateC = (GregorianCalendar) GregorianCalendar.getInstance();
+		
+		if (filaki > 0) {
+			if (filaki > 40) {
+				dateO.add(GregorianCalendar.DATE, filaki);
+			} else if (filaki > 20) {
+				dateO.add(GregorianCalendar.DATE, filaki - 20);
+			}
+		}
+
+		long rest = Math.abs(dateO.getTimeInMillis()
+				- dateC.getTimeInMillis()) / 1000;
+		
+		if (getPososto() >= 100){
+			rest = 0;
+		}
+		
+		return rest;
+	}
+	
+	public Long getTotalSeconds(){
+		GregorianCalendar dateO = new GregorianCalendar(
+				TimeZone.getTimeZone("Europe/Athens"));
+		GregorianCalendar dateI = new GregorianCalendar(
+				TimeZone.getTimeZone("Europe/Athens"));
+		
+		dateO.set(Integer.parseInt(dateOut.split("/")[2]),
+				  Integer.parseInt(dateOut.split("/")[1]) - 1,
+				  Integer.parseInt(dateOut.split("/")[0]),
+				  00, 00, 01);
+		
+		dateI.set(Integer.parseInt(dateIn.split("/")[2]),
+				  Integer.parseInt(dateIn.split("/")[1]) - 1,
+				  Integer.parseInt(dateIn.split("/")[0]),
+				  12, 00, 00);
+		
+		long total =  Math.abs(dateO.getTimeInMillis()
+				- dateI.getTimeInMillis()) / 1000;
+		
+		return total;
+	}
+	
+	public Long getPastSeconds(){
+		GregorianCalendar dateI = new GregorianCalendar(
+				TimeZone.getTimeZone("Europe/Athens"));
+		GregorianCalendar dateC = new GregorianCalendar(
+				TimeZone.getTimeZone("Europe/Athens"));
+		
+		dateI.set(Integer.parseInt(dateIn.split("/")[2]),
+				  Integer.parseInt(dateIn.split("/")[1]) - 1,
+				  Integer.parseInt(dateIn.split("/")[0]),
+				  12, 00, 00);
+		
+		dateC = (GregorianCalendar) GregorianCalendar.getInstance();
+
+		long past = Math.abs(dateI.getTimeInMillis()
+				- dateC.getTimeInMillis()) / 1000;
+		
+		return past;
+	}
+	
+	public Float getPososto(){
+
+		Float totalPososto = (float) getPastSeconds() * 100 / getTotalSeconds();
+		if (totalPososto > 100){
+			totalPososto = (float) 100;
+		}
+		return totalPososto;
+	}
 
 	public static Str getStrFromId(Integer num) {
 		String line = "0 * 0 * 0/0/0 * 0/0/0 * 0 * 0";
@@ -131,7 +222,95 @@ public class Str extends HashMap {
 		}
 		return list;
 	}
+	
+	public String getVathmo(){
+		Float totalPososto = getPososto();
+		String vath = "";
 
+		if (totalPososto < 8) {
+			vath = "ΣΤΡΑΤΙΩΤΗΣ";
+		} else if (totalPososto < 14) {
+			vath = "ΥΠΟΔΕΚΑΝΕΑΣ";
+		} else if (totalPososto < 20) {
+			vath = "ΔΕΚΑΝΕΑΣ";
+		} else if (totalPososto < 22) {
+			vath = "ΛΟΧΙΑΣ";
+		} else if (totalPososto < 28) {
+			vath = "ΕΠΙΛΟΧΙΑΣ";
+		} else if (totalPososto < 34) {
+			vath = "ΑΡΧΙΛΟΧΙΑΣ";
+		} else if (totalPososto < 40) {
+			vath = "ΑΝΘΥΠΑΣΠΙΣΤΗΣ";
+		} else if (totalPososto < 45) {
+			vath = "ΑΝΘΥΠΟΛΟΧΑΓΟΣ";
+		} else if (totalPososto < 50) {
+			vath = "ΥΠΟΛΟΧΑΓΟΣ";
+		} else if (totalPososto < 56) {
+			vath = "ΛΟΧΑΓΟΣ";
+		} else if (totalPososto < 62) {
+			vath = "ΤΑΓΜΑΤΑΡΧΗΣ";
+		} else if (totalPososto < 68) {
+			vath = "ΑΝΤΙΣΥΝΤΑΓΜΑΤΑΡΧΗΣ";
+		} else if (totalPososto < 73) {
+			vath = "ΣΥΝΤΑΓΜΑΤΑΡΧΗΣ";
+		} else if (totalPososto < 79) {
+			vath = "ΤΑΞΙΑΡΧΟΣ";
+		} else if (totalPososto < 85) {
+			vath = "ΥΠΟΣΤΡΑΤΗΓΟΣ";
+		} else if (totalPososto < 91) {
+			vath = "ΑΝΤΙΣΤΡΑΤΗΓΟΣ";
+		} else if (totalPososto < 97) {
+			vath = "ΣΤΡΑΤΗΓΟΣ";
+		} else {
+			vath = "ΠΟΛΙΤΗΣ";
+		}
+		return vath;
+	}
+
+	public int getImg(){
+		Float totalPososto = getPososto();
+		int img = 0;
+
+		if (totalPososto < 8) {
+			img = R.drawable.img1;
+		} else if (totalPososto < 14) {
+			img = R.drawable.img2;
+		} else if (totalPososto < 20) {
+			img = R.drawable.img3;
+		} else if (totalPososto < 22) {
+			img = R.drawable.img4;
+		} else if (totalPososto < 28) {
+			img = R.drawable.img5;
+		} else if (totalPososto < 34) {
+			img = R.drawable.img6;
+		} else if (totalPososto < 40) {
+			img = R.drawable.img7;
+		} else if (totalPososto < 45) {
+			img = R.drawable.img8;
+		} else if (totalPososto < 50) {
+			img = R.drawable.img9;
+		} else if (totalPososto < 56) {
+			img = R.drawable.img10;
+		} else if (totalPososto < 62) {
+			img = R.drawable.img11;
+		} else if (totalPososto < 68) {
+			img = R.drawable.img12;
+		} else if (totalPososto < 73) {
+			img = R.drawable.img13;
+		} else if (totalPososto < 79) {
+			img = R.drawable.img14;
+		} else if (totalPososto < 85) {
+			img = R.drawable.img15;
+		} else if (totalPososto < 91) {
+			img = R.drawable.img16;
+		} else if (totalPososto < 97) {
+			img = R.drawable.img17;
+		} else {
+			img = R.drawable.img18;
+		}
+		return img;
+	}
+	
 	public void setName(String nam) {
 		this.name = nam;
 	}
