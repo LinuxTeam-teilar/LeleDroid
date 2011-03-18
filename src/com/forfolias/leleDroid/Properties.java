@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
@@ -26,7 +25,6 @@ public class Properties extends Activity {
 
 	private EditText activeDateDisplay;
 	private Calendar activeDate;
-
 	int id;
 
 	@Override
@@ -191,8 +189,7 @@ public class Properties extends Activity {
 
 	public boolean checkDates(String dateIn, String dateOut) {
 		Toast toast = null;
-		String myFormatString = "dd/MM/yyyy";
-		SimpleDateFormat df = new SimpleDateFormat(myFormatString);
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		Date date1 = null;
 		Date date2 = null;
 

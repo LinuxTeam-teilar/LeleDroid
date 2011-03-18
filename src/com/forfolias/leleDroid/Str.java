@@ -168,6 +168,7 @@ public class Str extends HashMap {
 	}
 
 	public static Str getStrFromId(Integer num) {
+		
 		String line = "0 * 0 * 0/0/0 * 0/0/0 * 0 * 0";
 		Integer c = 0;
 		Str strat = new Str();
@@ -184,6 +185,7 @@ public class Str extends HashMap {
 			return strat;
 		}
 		strat.setStrFromString(line);
+		
 		return strat;
 	}
 
@@ -204,21 +206,12 @@ public class Str extends HashMap {
 		return line;
 	}
 
-	public static List<Str> getStrList() {
+	public static List<Str> getStrList() {	
 		List<Str> list = new ArrayList<Str>();
-		Str item = new Str();
-		String line = "0 * 0 * 0/0/0 * 0/0/0 * 0 * 0";
-
-		try {
-			BufferedReader in = new BufferedReader(new FileReader(dataFile));
-			while ((line = in.readLine()) != null) {
-				item.setStrFromString(line);
-				list.add(item);
-				item = new Str();
-			}
-			in.close();
-		} catch (IOException e) {
-			Log.e(TAG, "getStrList error : " + e.getLocalizedMessage());
+		Integer N = getLengh();
+		
+		for (int i = 0 ; i < N ; i++){
+			list.add(getStrFromId(i+1));
 		}
 		return list;
 	}
@@ -366,7 +359,7 @@ public class Str extends HashMap {
 		try {
 			is = new BufferedInputStream(new FileInputStream(dataFile));
 		} catch (FileNotFoundException e) {
-			Log.e(TAG, "getLengh error A : " + e.getLocalizedMessage());
+			Log.e(TAG, "getLengh error. FileNotFound : " + e.getLocalizedMessage());
 			return 0;
 		}
 		try {

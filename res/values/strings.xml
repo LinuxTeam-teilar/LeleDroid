@@ -5,12 +5,12 @@
 	<string name="info">Πληροφορίες</string>
 	<string name="str">Στρατιώτης</string>
 	<string name="add">Προσθήκη στρατιώτη</string>
-	<string name="widgetTitle">Ρυθμίσεις του leleDroid widget</string>
-	<string name="selectStr">Επιλογή στρατιώτη : </string>
+	<string name="selectStr">Επιλογή στρατιώτη</string>
 
-	<string name="delete">Διαγραφή</string>
-	<string name="view">Προβολή</string>
+	<string name="details">Λεπτομέρειες</string>
+	<string name="chart">Γράφημα</string>
 	<string name="edit">Επεξεργασία</string>
+	<string name="delete">Διαγραφή</string>
 
 	<string name="dateOut">Ημερομηνία απόλυσης</string>
 	<string name="dateIn">Ημερομηνία κατάταξης</string>
@@ -20,8 +20,7 @@
 	<string name="ipiretithike">Ημέρες που υπηρετήθηκαν</string>
 	<string name="ipolipo">Ημέρες που απομένουν</string>
 
-
-	<string name="details">Λεπτομέρειες στρατιώτη</string>
+	<string name="detailsTitle">Λεπτομέρειες στρατιώτη</string>
 	<string name="secs">Δευτερόλεπτα...</string>
 	<string name="mins">Λεπτά...</string>
 	<string name="hours">Ώρες...</string>
@@ -37,8 +36,19 @@
 	<string name="cancel">Άκυρο</string>
 	<string name="back">Επιστροφή</string>
 
+	<string name="widgetTitle">Ρυθμίσεις του leleDroid widget</string>
+	<string name="textColor">Χρώμα κειμένου</string>
+	<string name="widgetDisplayVathmos">Εμφάνιση λελεδοβαθμού</string>
+	<string name="widgetDisplayName">Εμφάνιση ονόματος</string>
+	<string name="widgetDisplayImage">Εμφάνιση εικόνας λελεδοβαθμού</string>
+	<string name="widgetDisplayDays">Εμφάνιση εναπομείναντων ημερών</string>
+	<string name="widgetDisplayProgress">Εμφάνιση μπάρας ποσοστού</string>
 	<string name="emptyList">Δεν υπάρχει κάποιος διαθέσιμος στρατιώτης. Παρακαλώ
 		προσθέστε κάποιον από την εφαρμογή leleDroid</string>
+	<string name="emptyDisplay">Επιλέξτε τουλάχιστον ένα στοιχείο για εμφάνιση</string>	
+	<string name="selectAction">Ενέργεια κατά το κλικ</string>
+	<string name="none">Καμία</string>
+	
 	<string name="emptyAdeia">Παρακαλώ συμπληρώστε της ημέρες άδειας</string>
 	<string name="emptyName">Παρακαλώ συμπληρώστε το όνομα στρατιώτη</string>
 	<string name="emptyFilaki">Παρακαλώ συμπληρώστε τις ημέρες φυλακής</string>

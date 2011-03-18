@@ -127,7 +127,11 @@ public class Details extends Activity {
 		if (adeia < 0) {
 			adeia = 0;
 		}
-
+		
+		if (ipiretisimoYpoloipo == 0 && adeia == 0 && perasan == 0) {
+			perasan = 1;
+		}
+		
 		String[] labels = { adeia.toString(), ipiretisimoYpoloipo.toString(),
 				perasan.toString() };
 		GraphicalView mChartView;
@@ -143,7 +147,7 @@ public class Details extends Activity {
 		layout.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				LayoutInflater inflater = getLayoutInflater();
-				View layout = inflater.inflate(R.layout.chart,
+				View layout = inflater.inflate(R.layout.chart_tooltip,
 						(ViewGroup) findViewById(R.id.LL1));
 
 				Toast toastView = new Toast(getBaseContext());

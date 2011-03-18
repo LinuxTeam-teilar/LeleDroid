@@ -1,25 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	<TextView android:text="@string/widgetTitle" android:layout_margin="10dp"
-		android:id="@+id/widgetConfTitle" android:gravity="center"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
-	<LinearLayout android:id="@+id/LinearLayout08" 
-		android:layout_margin="6dip" android:gravity="center_vertical"
-		android:orientation="horizontal" android:layout_height="wrap_content"
-		android:layout_width="fill_parent">
-		<TextView android:text="@string/selectStr" android:layout_centerVertical="true"
-			android:id="@+id/widgetConfTitle" android:layout_width="wrap_content"
-			android:layout_height="wrap_content"></TextView>
-		<Spinner android:layout_height="wrap_content" android:prompt="@string/selectStr" 
-			android:layout_width="fill_parent" android:id="@+id/strSpinner"></Spinner>
+<ScrollView android:id="@+id/detailsScrollView"
+	android:paddingTop="10dip" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+	<LinearLayout android:id="@+id/LinearLayout01"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:orientation="vertical">
+		<RelativeLayout android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:layout_marginLeft="5dp" android:layout_marginRight="5dp">
+			<RelativeLayout android:id="@+id/RlStr"
+				android:layout_alignParentTop="true" android:layout_marginTop="5dp"
+				android:layout_marginLeft="1dp" android:layout_marginRight="1dp"
+				android:orientation="horizontal" android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView android:text="@string/selectStr"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+				<Spinner android:layout_height="wrap_content"
+					android:prompt="@string/selectStr" android:layout_alignParentRight="true"
+					android:layout_width="150dp" android:id="@+id/strSpinner"></Spinner>
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/RlAction"
+				android:layout_below="@+id/RlStr" android:layout_margin="1dp"
+				android:orientation="horizontal" android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView android:text="@string/selectAction"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+				<Spinner android:layout_height="wrap_content"
+					android:prompt="@string/selectAction" android:layout_alignParentRight="true"
+					android:layout_width="150dp" android:id="@+id/actionSpinner"></Spinner>
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/RlTextColor"
+				android:layout_below="@+id/RlAction" android:layout_marginRight="5dp"
+				android:layout_marginLeft="1dp"
+				android:orientation="horizontal" android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView android:text="@string/textColor" android:id="@+id/widgetTextColor"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+				<LinearLayout android:layout_width="wrap_content"
+					android:layout_alignParentRight="true" android:layout_height="wrap_content"
+					android:padding="5dp" android:background="#ffffffff">
+					<LinearLayout android:id="@+id/widgetButtonTextColor"
+						android:background="#ff000000" android:layout_centerVertical="true"
+						android:layout_height="50dp" android:layout_width="50dip"></LinearLayout>
+				</LinearLayout>
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/RlVathm"
+				android:layout_below="@+id/RlTextColor" android:layout_margin="1dp"
+				android:orientation="horizontal" android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView android:text="@string/widgetDisplayVathmos"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+				<CheckBox android:layout_width="wrap_content"
+					android:checked="true" android:layout_alignParentRight="true"
+					android:id="@+id/CBVathmos" android:layout_height="wrap_content"></CheckBox>
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/RlName"
+				android:layout_below="@+id/RlVathm" android:layout_margin="1dp"
+				android:orientation="horizontal" android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView android:text="@string/widgetDisplayName"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+				<CheckBox android:layout_width="wrap_content"
+					android:checked="true" android:layout_alignParentRight="true"
+					android:id="@+id/CBName" android:layout_height="wrap_content"></CheckBox>
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/RlImage"
+				android:layout_below="@+id/RlName" android:layout_margin="1dp"
+				android:orientation="horizontal" android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView android:text="@string/widgetDisplayImage"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+				<CheckBox android:layout_width="wrap_content"
+					android:checked="true" android:layout_alignParentRight="true"
+					android:id="@+id/CBImage" android:layout_height="wrap_content"></CheckBox>
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/RlDays"
+				android:layout_below="@+id/RlImage" android:layout_margin="1dp"
+				android:orientation="horizontal" android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView android:text="@string/widgetDisplayDays"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+				<CheckBox android:layout_width="wrap_content"
+					android:checked="true" android:layout_alignParentRight="true"
+					android:id="@+id/CBDays" android:layout_height="wrap_content"></CheckBox>
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/RlProg"
+				android:layout_below="@+id/RlDays" android:layout_margin="1dp"
+				android:orientation="horizontal" android:layout_height="wrap_content"
+				android:layout_width="fill_parent">
+				<TextView android:text="@string/widgetDisplayProgress"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true" android:layout_width="wrap_content"
+					android:layout_height="wrap_content"></TextView>
+				<CheckBox android:layout_width="wrap_content"
+					android:checked="true" android:layout_alignParentRight="true"
+					android:id="@+id/CBProg" android:layout_height="wrap_content"></CheckBox>
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/LinearLayout08"
+				android:layout_below="@+id/RlProg" android:gravity="center_horizontal"
+				android:layout_height="wrap_content" android:layout_width="fill_parent">
+				<Button android:text="@string/ok" android:id="@+id/ok"
+					android:layout_margin="10dp" android:layout_width="100dip"
+					android:layout_height="wrap_content"></Button>
+			</RelativeLayout>
+		</RelativeLayout>
 	</LinearLayout>
-	<LinearLayout android:id="@+id/LinearLayout08" 
-		android:layout_margin="15dip" android:gravity="center_horizontal"
-		android:orientation="horizontal" android:layout_height="wrap_content"
-		android:layout_width="fill_parent">
-		<Button android:text="@string/ok" android:id="@+id/ok" android:layout_margin="10dp"
-			android:layout_width="100dip" android:layout_height="wrap_content"></Button>
-	</LinearLayout>
-</LinearLayout>
+</ScrollView>

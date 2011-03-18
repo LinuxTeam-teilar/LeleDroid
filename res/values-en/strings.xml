@@ -5,13 +5,13 @@
 	<string name="info">Information</string>
 	<string name="str">Soldier</string>
 	<string name="add">Add soldier</string>
-	<string name="widgetTitle">leleDroid Widget Configuration</string>
-	<string name="selectStr">Select soldier : </string>
+	<string name="selectStr">Select soldier</string>
 
-	<string name="delete">Delete</string>
-	<string name="view">View</string>
+	<string name="details">Details</string>
+	<string name="chart">Pie chart</string>
 	<string name="edit">Edit</string>
-
+	<string name="delete">Delete</string>
+	
 	<string name="dateOut">End date</string>
 	<string name="dateIn">Start date</string>
 	<string name="strName">Name</string>
@@ -20,8 +20,7 @@
 	<string name="ipiretithike">Days served</string>
 	<string name="ipolipo">Remaining days</string>
 
-
-	<string name="details">Soldier details</string>
+	<string name="detailsTitle">Soldier details</string>
 	<string name="secs">Seconds...</string>
 	<string name="mins">Minutes...</string>
 	<string name="hours">Hours...</string>
@@ -38,8 +37,21 @@
 	<string name="cancel">Cancel</string>
 	<string name="back">Back</string>
 
+	<string name="widgetTitle">leleDroid Widget Configuration</string>
+	<string name="textColor">Text color</string>
+	<string name="widgetDisplayVathmos">Display soldiers\' military rank</string>
+	<string name="widgetDisplayName">Display soldiers\' name</string>
+	<string name="widgetDisplayImage">Display soldiers\' military rank image</string>
+	<string name="widgetDisplayDays">Display soldiers\' rest service days</string>
+	<string name="widgetDisplayProgress">Display percentage progress bar</string>
 	<string name="emptyList">There is no available soldier. Please add a soldier
 		at the leleDroid application</string>
+	<string name="emptyDisplay">Select at least one component to display
+	</string>
+	<string name="selectAction">Select on click action</string>
+	<string name="none">None</string>
+	
+
 	<string name="emptyAdeia">Please fill in the days off</string>
 	<string name="emptyName">Please fill in the name of the soldier</string>
 	<string name="emptyFilaki">Please fill in the extra days</string>

@@ -47,9 +47,10 @@ public class leleDroid extends Activity {
 		strList.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
 			public void onCreateContextMenu(ContextMenu menu, View v,
 					ContextMenu.ContextMenuInfo menuInfo) {
-				menu.add(0, 1, 0, R.string.view);
-				menu.add(0, 2, 0, R.string.edit);
-				menu.add(0, 3, 0, R.string.delete);
+				menu.add(0, 1, 0, R.string.details);
+				menu.add(0, 2, 0, R.string.chart);
+				menu.add(0, 3, 0, R.string.edit);
+				menu.add(0, 4, 0, R.string.delete);
 			}
 		});
 	}
@@ -61,7 +62,7 @@ public class leleDroid extends Activity {
 
 		switch (item.getItemId()) {
 
-		/* View Str */
+			/* View Str details */
 		case 1:
 			Intent view = new Intent(this,
 					com.forfolias.leleDroid.Details.class);
@@ -69,9 +70,18 @@ public class leleDroid extends Activity {
 			view.putExtras(b);
 			startActivity(view);
 			return true;
+			
+			/* View Str chart dialog */
+		case 2:
+			Intent viewChart = new Intent(this,
+					com.forfolias.leleDroid.ChartView.class);
+			b.putInt("id", menuInfo.position + 1);
+			viewChart.putExtras(b);
+			startActivity(viewChart);
+			return true;
 
 			/* Edit Str */
-		case 2:
+		case 3:
 			Intent edit = new Intent(this,
 					com.forfolias.leleDroid.Properties.class);
 			b.putInt("id", menuInfo.position + 1);
@@ -80,7 +90,7 @@ public class leleDroid extends Activity {
 			return true;
 
 			/* Delete Str */
-		case 3:
+		case 4:
 			if (Str.deleteStrFromId(menuInfo.position + 1)) {
 				Intent intent = getIntent();
 				finish();
