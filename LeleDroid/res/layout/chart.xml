@@ -1,38 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent"
-	android:layout_margin="5dip" xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+	android:layout_width="fill_parent"
+	android:layout_margin="5dip"
+	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_height="fill_parent">
-	<TextView android:id="@+id/ChartTvName" android:gravity="center_horizontal"
-		android:layout_alignParentTop="true"  android:textSize="16dp"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
-	<LinearLayout android:id="@+id/pieChartActivity"
-		android:layout_below="@+id/ChartTvName" android:layout_height="250dp"
+	<RelativeLayout
+		android:id="@+id/ChartLlAdeia"
+		android:layout_margin="1dip"
+		android:layout_alignParentBottom="true"
+		android:padding="5dip"
+		android:background="#0000FF"
+		android:gravity="center"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView
+			android:id="@+id/ChartTvAdeia"
+			android:text="@string/adeia"
+			android:textColor="#000000"
+			android:textStyle="bold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+	</RelativeLayout>
+	<RelativeLayout
+		android:id="@+id/ChartLlIpolipo"
+		android:layout_margin="1dip"
+		android:layout_above="@+id/ChartLlAdeia"
+		android:padding="5dip"
+		android:gravity="center"
+		android:background="#FF0000"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView
+			android:id="@+id/ChartTvIpolipo"
+			android:text="@string/ipolipo"
+			android:textColor="#000000"
+			android:textStyle="bold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+	</RelativeLayout>
+	<RelativeLayout
+		android:layout_above="@+id/ChartLlIpolipo"
+		android:id="@+id/ChartLlIpiretithike"
+		android:layout_margin="1dip"
+		android:padding="5dip"
+		android:gravity="center"
+		android:background="#00FF00"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView
+			android:id="@+id/ChartTvIpiretithike"
+			android:text="@string/ipiretithike"
+			android:layout_width="wrap_content"
+			android:textColor="#000000"
+			android:textStyle="bold"
+			android:layout_height="wrap_content"></TextView>
+	</RelativeLayout>
+		<LinearLayout
+		android:id="@+id/pieChartActivity"
+		android:layout_below="@+id/ChartTvName"
+		android:layout_above="@+id/ChartLlIpiretithike"
+		android:layout_height="250dp"
 		android:layout_width="wrap_content">
 	</LinearLayout>
-	<RelativeLayout android:id="@+id/ChartLlAdeia"
-		android:layout_margin="1dip" android:layout_alignParentBottom="true"
-		android:padding="5dip" android:background="#0000FF" android:gravity="center"
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:id="@+id/ChartTvAdeia" android:text="@string/adeia"
-			android:textColor="#000000" android:textStyle="bold"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-	</RelativeLayout>
-	<RelativeLayout android:id="@+id/ChartLlIpolipo"
-		android:layout_margin="1dip" android:layout_above="@+id/ChartLlAdeia"
-		android:padding="5dip" android:gravity="center" android:background="#FF0000"
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:id="@+id/ChartTvIpolipo" android:text="@string/ipolipo"
-			android:textColor="#000000" android:textStyle="bold"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-	</RelativeLayout>
-	<RelativeLayout android:layout_above="@+id/ChartLlIpolipo"
-		android:id="@+id/ChartLlIpiretithike" android:layout_margin="1dip"
-		android:padding="5dip" android:gravity="center" android:background="#00FF00"
-		android:layout_width="fill_parent" android:layout_height="wrap_content">
-		<TextView android:id="@+id/ChartTvIpiretithike" android:text="@string/ipiretithike"
-			android:layout_width="wrap_content" android:textColor="#000000"
-			android:textStyle="bold" android:layout_height="wrap_content"></TextView>
-	</RelativeLayout>
-
+	<TextView
+		android:id="@+id/ChartTvName"
+		android:gravity="center_horizontal"
+		android:layout_alignParentTop="true"
+		android:textSize="16dp"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"></TextView>
 
 </RelativeLayout>

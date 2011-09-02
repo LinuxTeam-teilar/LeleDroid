@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -157,6 +159,24 @@ public class Details extends Activity {
 				toastView.show();
 			}
 		});
+	}
+	
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(0, 1, 0, R.string.delete).setIcon(R.drawable.ic_menu_delete);
+		menu.add(0, 2, 0, R.string.edit).setIcon(R.drawable.ic_menu_edit);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case 1:
+			deleteButtonClicked(null);
+			return true;
+		case 2:
+			editButtonClicked(null);
+			return true;
+		}
+		return false;
 	}
 
 	public void editButtonClicked(View v) {

@@ -126,9 +126,9 @@ public class leleDroid extends Activity {
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 1, 0, R.string.add);
-		menu.add(0, 2, 0, R.string.info);
-		menu.add(0, 3, 0, R.string.donate);
+		menu.add(0, 1, 0, R.string.add).setIcon(R.drawable.ic_menu_add);
+		menu.add(0, 2, 0, R.string.info).setIcon(R.drawable.ic_menu_info_details);
+		menu.add(0, 3, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
 		return true;
 	}
 
