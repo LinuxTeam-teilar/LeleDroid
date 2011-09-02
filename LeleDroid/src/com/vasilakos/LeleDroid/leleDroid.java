@@ -3,6 +3,8 @@ package com.vasilakos.LeleDroid;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -56,7 +58,7 @@ public class leleDroid extends Activity {
 	}
 
 	public boolean onContextItemSelected(MenuItem item) {
-		AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item
+		final AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item
 				.getMenuInfo();
 		Bundle b = new Bundle();
 
@@ -91,12 +93,33 @@ public class leleDroid extends Activity {
 
 			/* Delete Str */
 		case 4:
-			if (Str.deleteStrFromId(menuInfo.position + 1)) {
-				Intent intent = getIntent();
-				finish();
-				startActivity(intent);
-				return true;
-			}
+			
+			DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {
+					switch (which) {
+					case DialogInterface.BUTTON_POSITIVE:
+						if (Str.deleteStrFromId(menuInfo.position + 1)) {
+							Intent intent = getIntent();
+							finish();
+							startActivity(intent);
+							return;
+						}
+						break;
+
+					case DialogInterface.BUTTON_NEGATIVE:
+						return;
+					}
+				}
+			};
+
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage(getResources().getString(R.string.delete))
+					.setPositiveButton(R.string.ok, dialogClickListener)
+					.setMessage(getResources().getString(R.string.deleteMessage))
+					.setNegativeButton(R.string.cancel, dialogClickListener)
+					.setTitle(getResources().getString(R.string.deleteConfirmation))
+					.show();
+
 			return false;
 		}
 		return false;

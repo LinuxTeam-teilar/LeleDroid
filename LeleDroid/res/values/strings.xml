@@ -11,6 +11,7 @@
 	<string name="chart">Γράφημα</string>
 	<string name="edit">Επεξεργασία</string>
 	<string name="delete">Διαγραφή</string>
+	<string name="deleteConfirmation">Επιβεβαίωση διαγραφής</string>
 
 	<string name="dateOut">Ημερομηνία απόλυσης</string>
 	<string name="dateIn">Ημερομηνία κατάταξης</string>

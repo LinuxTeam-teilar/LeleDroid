@@ -186,7 +186,9 @@ public class Details extends Activity {
 		builder.setMessage(getResources().getString(R.string.delete))
 				.setPositiveButton(R.string.ok, dialogClickListener)
 				.setMessage(getResources().getString(R.string.deleteMessage))
-				.setNegativeButton(R.string.cancel, dialogClickListener).show();
+				.setNegativeButton(R.string.cancel, dialogClickListener)
+				.setTitle(getResources().getString(R.string.deleteConfirmation))
+				.show();
 	}
 
 	public void deleteButtonOk() {
