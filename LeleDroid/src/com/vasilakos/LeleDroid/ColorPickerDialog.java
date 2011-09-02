@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.forfolias.leleDroid;
+package com.vasilakos.LeleDroid;
 
-import com.forfolias.leleDroid.views.ColorPanelView;
-import com.forfolias.leleDroid.views.ColorPickerView;
-import com.forfolias.leleDroid.views.ColorPickerView.OnColorChangedListener;
+import com.vasilakos.LeleDroid.views.ColorPanelView;
+import com.vasilakos.LeleDroid.views.ColorPickerView;
+import com.vasilakos.LeleDroid.views.ColorPickerView.OnColorChangedListener;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.PixelFormat;

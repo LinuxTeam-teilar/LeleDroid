@@ -1,4 +1,4 @@
-package com.forfolias.leleDroid;
+package com.vasilakos.LeleDroid;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;

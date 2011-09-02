@@ -1,4 +1,4 @@
-package com.forfolias.leleDroid;
+package com.vasilakos.LeleDroid;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class leleDroid extends Activity {
 		strList.setOnItemClickListener(new ListView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> a, View v, int i, long l) {
 				Intent view = new Intent(leleDroid.this,
-						com.forfolias.leleDroid.Details.class);
+						com.vasilakos.LeleDroid.Details.class);
 				Bundle b = new Bundle();
 				b.putInt("id", i + 1);
 				view.putExtras(b);
@@ -65,7 +65,7 @@ public class leleDroid extends Activity {
 			/* View Str details */
 		case 1:
 			Intent view = new Intent(this,
-					com.forfolias.leleDroid.Details.class);
+					com.vasilakos.LeleDroid.Details.class);
 			b.putInt("id", menuInfo.position + 1);
 			view.putExtras(b);
 			startActivity(view);
@@ -74,7 +74,7 @@ public class leleDroid extends Activity {
 			/* View Str chart dialog */
 		case 2:
 			Intent viewChart = new Intent(this,
-					com.forfolias.leleDroid.ChartView.class);
+					com.vasilakos.LeleDroid.ChartView.class);
 			b.putInt("id", menuInfo.position + 1);
 			viewChart.putExtras(b);
 			startActivity(viewChart);
@@ -83,7 +83,7 @@ public class leleDroid extends Activity {
 			/* Edit Str */
 		case 3:
 			Intent edit = new Intent(this,
-					com.forfolias.leleDroid.Properties.class);
+					com.vasilakos.LeleDroid.Properties.class);
 			b.putInt("id", menuInfo.position + 1);
 			edit.putExtras(b);
 			startActivity(edit);
@@ -128,12 +128,12 @@ public class leleDroid extends Activity {
 	}
 
 	public void onAddButtonClick(View v) {
-		Intent str = new Intent(this, com.forfolias.leleDroid.Properties.class);
+		Intent str = new Intent(this, com.vasilakos.LeleDroid.Properties.class);
 		startActivity(str);
 	}
 
 	public void onInfoButtonClick(View v) {
-		Intent str = new Intent(this, com.forfolias.leleDroid.Info.class);
+		Intent str = new Intent(this, com.vasilakos.LeleDroid.Info.class);
 		startActivity(str);
 	}
 

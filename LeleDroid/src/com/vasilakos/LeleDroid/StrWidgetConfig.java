@@ -1,4 +1,4 @@
-package com.forfolias.leleDroid;
+package com.vasilakos.LeleDroid;
 
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
@@ -146,14 +146,14 @@ public class StrWidgetConfig extends Activity {
 
 	static void savePref(Context context, int appWidgetId, String text, String key) {
 		SharedPreferences.Editor prefs = context.getSharedPreferences(
-				"com.forfolias.leleDroid.StrWidget", 0).edit();
+				"com.vasilakos.LeleDroid.StrWidget", 0).edit();
 		prefs.putString(key + appWidgetId, text);
 		prefs.commit();
 	}
 
 	static String getPref(Context context, int appWidgetId, String pref) {
 		SharedPreferences prefs = context.getSharedPreferences(
-				"com.forfolias.leleDroid.StrWidget", 0);
+				"com.vasilakos.LeleDroid.StrWidget", 0);
 		String prefix = prefs.getString(pref + appWidgetId, null);
 		if (prefix != null){
 			return prefix;			

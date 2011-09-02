@@ -1,4 +1,4 @@
-package com.forfolias.leleDroid;
+package com.vasilakos.LeleDroid;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

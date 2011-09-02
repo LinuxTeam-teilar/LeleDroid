@@ -1,4 +1,4 @@
-package com.forfolias.leleDroid;
+package com.vasilakos.LeleDroid;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;

@@ -15,9 +15,10 @@
  */
 
 
-package com.forfolias.leleDroid.views;
+package com.vasilakos.LeleDroid.views;
 
-import com.forfolias.leleDroid.drawables.AlphaPatternDrawable;
+import com.vasilakos.LeleDroid.drawables.AlphaPatternDrawable;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;

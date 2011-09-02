@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.forfolias.leleDroid.drawables;
+package com.vasilakos.LeleDroid.drawables;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

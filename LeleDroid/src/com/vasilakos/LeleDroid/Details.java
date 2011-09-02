@@ -1,4 +1,4 @@
-package com.forfolias.leleDroid;
+package com.vasilakos.LeleDroid;
 
 import java.util.GregorianCalendar;
 import org.achartengine.ChartFactory;
@@ -161,7 +161,7 @@ public class Details extends Activity {
 
 	public void editButtonClicked(View v) {
 		Bundle b = new Bundle();
-		Intent edit = new Intent(this, com.forfolias.leleDroid.Properties.class);
+		Intent edit = new Intent(this, com.vasilakos.LeleDroid.Properties.class);
 		b.putInt("id", str.getId());
 		edit.putExtras(b);
 		startActivity(edit);
