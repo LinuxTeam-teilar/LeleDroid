@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="version">1.3</string>
+	<string name="version">1.4</string>
 	<string name="app_name">leleDroid</string>
 	<string name="info">Πληροφορίες</string>
 	<string name="str">Στρατιώτης</string>
@@ -39,6 +39,7 @@
 
 	<string name="widgetTitle">Ρυθμίσεις του leleDroid widget</string>
 	<string name="textColor">Χρώμα κειμένου</string>
+	<string name="bgColor">Χρώμα παρασκηνίου</string>
 	<string name="widgetDisplayVathmos">Εμφάνιση λελεδοβαθμού</string>
 	<string name="widgetDisplayName">Εμφάνιση ονόματος</string>
 	<string name="widgetDisplayImage">Εμφάνιση εικόνας λελεδοβαθμού</string>
@@ -48,7 +49,9 @@
 		προσθέστε κάποιον από την εφαρμογή leleDroid</string>
 	<string name="emptyDisplay">Επιλέξτε τουλάχιστον ένα στοιχείο για εμφάνιση</string>	
 	<string name="selectAction">Ενέργεια κατά το κλικ</string>
-	<string name="none">Καμία</string>
+	<string name="none">Τίποτα</string>
+	<string name="light">Φωτεινό</string>
+	<string name="dark">Σκούρο</string>
 	
 	<string name="emptyAdeia">Παρακαλώ συμπληρώστε της ημέρες άδειας</string>
 	<string name="emptyName">Παρακαλώ συμπληρώστε το όνομα στρατιώτη</string>
@@ -58,8 +61,7 @@
 
 	<string name="donate">Δωρεά</string>
 	<string name="contact">Επικοινωνία :</string>
-	<string name="site">http://linuxteam.cs.teilar.gr/~forfolias/leleDroid/
-	</string>
+	<string name="site">http://code.google.com/p/leledroid/</string>
 	<string name="copyright">Copyright (c) 2011 Βασιλάκος Γεώργιος</string>
 	<string name="description">Το leleDroid εμφανίζει πληροφορίες σχετικά με το
 		υπόλοιπο της θητείας ενός στρατιώτη.</string>

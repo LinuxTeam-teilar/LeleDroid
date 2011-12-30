@@ -23,6 +23,10 @@ public class StrWidget extends AppWidgetProvider {
 					"action_");
 			String TextColor = StrWidgetConfig.getPref(context, appWidgetId,
 					"textColor_");
+//			String BgColor = StrWidgetConfig.getPref(context, appWidgetId,
+//					"bgColor_");
+			String BgColor = StrWidgetConfig.getPref(context, appWidgetId,
+					"bg_");
 			String Vathm = StrWidgetConfig.getPref(context, appWidgetId,
 					"displayVathmos_");
 			String Name = StrWidgetConfig.getPref(context, appWidgetId,
@@ -38,14 +42,14 @@ public class StrWidget extends AppWidgetProvider {
 				return;
 
 			updateAppWidget(context, appWidgetManager, appWidgetId,
-					Integer.parseInt(id), Integer.parseInt(act), TextColor,
+					Integer.parseInt(id), Integer.parseInt(act), TextColor, BgColor,
 					Vathm, Name, Image, Days, Prog);
 		}
 	}
 
 	static void updateAppWidget(Context context,
 			AppWidgetManager appWidgetManager, int appWidgetId, Integer id,
-			Integer act, String tC, String V, String Nam, String Image,
+			Integer act, String tC, String bC, String V, String Nam, String Image,
 			String Days, String Prog) {
 
 		RemoteViews views = new RemoteViews(context.getPackageName(),
@@ -59,6 +63,16 @@ public class StrWidget extends AppWidgetProvider {
 		views.setTextColor(R.id.strVathmos, Integer.parseInt(tC));
 		views.setTextColor(R.id.strName, Integer.parseInt(tC));
 		views.setTextColor(R.id.strMeres, Integer.parseInt(tC));
+//		views.setInt(R.id.widg, "setBackgroundColor", Integer.parseInt(bC));
+		
+		int ibg = Integer.parseInt(bC);
+		
+		if(ibg == 0)
+			views.setInt(R.id.widg, "setBackgroundResource", R.layout.bg_none);
+		else if (ibg == 1)
+			views.setInt(R.id.widg, "setBackgroundResource", R.layout.bg_light);
+		else if (ibg == 2)
+			views.setInt(R.id.widg, "setBackgroundResource", R.layout.bg_dark);		
 
 		views.setTextViewText(R.id.strVathmos, vathmos);
 		views.setTextViewText(R.id.strName, onoma);
@@ -94,7 +108,7 @@ public class StrWidget extends AppWidgetProvider {
 			views.setOnClickPendingIntent(R.id.widg, pendingIntent);
 			views.setOnClickPendingIntent(R.id.strImg, pendingIntent);
 		}
-
+		
 		appWidgetManager.updateAppWidget(appWidgetId, views);
 	}
 }

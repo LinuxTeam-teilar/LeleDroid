@@ -86,11 +86,13 @@
 			android:layout_margin="6dip" android:gravity="center_horizontal"
 			android:orientation="horizontal" android:layout_height="wrap_content"
 			android:layout_width="fill_parent">
-			<Button android:text="@string/ok" android:id="@+id/ok_button"
-				android:onClick="okButtonClicked" android:layout_width="100dip"
-				android:layout_height="wrap_content"></Button>
 			<Button android:text="@string/cancel" android:id="@+id/cancel_button"
-				android:onClick="cancelButtonClicked" android:layout_width="100dip"
+				android:onClick="cancelButtonClicked" android:layout_width="130dip"
+				android:drawableLeft="@drawable/ic_menu_revert"
+				android:layout_height="wrap_content"></Button>
+			<Button android:text="@string/ok" android:id="@+id/ok_button"
+				android:drawableLeft="@drawable/ic_menu_save"
+				android:onClick="okButtonClicked" android:layout_width="130dip"
 				android:layout_height="wrap_content"></Button>
 		</LinearLayout>
 	</LinearLayout>

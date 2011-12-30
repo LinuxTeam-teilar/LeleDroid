@@ -17,6 +17,7 @@ public class StrWidgetConfig extends Activity {
 
 	private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 	public Integer textColor = 0xff000000;
+	public Integer bgColor = 0x66ffffff;
 
 	public StrWidgetConfig() {
 		super();
@@ -30,10 +31,13 @@ public class StrWidgetConfig extends Activity {
 
 		setStrSpinner();
 		setActionSpinner();
+		setbgColorSpinner();
 
 		findViewById(R.id.ok).setOnClickListener(mOnClickListener);
 		findViewById(R.id.widgetButtonTextColor).setOnClickListener(
 				pickTextColor);
+//		findViewById(R.id.widgetButtonBgColor).setOnClickListener(
+//				pickBgColor);
 
 		Intent intent = getIntent();
 		Bundle extras = intent.getExtras();
@@ -57,15 +61,21 @@ public class StrWidgetConfig extends Activity {
 			String Ppref = "";
 			Integer action = -1;
 			CheckBox cb;
+			
 			Spinner strSpin = (Spinner) findViewById(R.id.strSpinner);
 			Integer id = (int) (strSpin.getSelectedItemId() + 1);
 			savePref(context, mAppWidgetId, id.toString(), "id_");
 			
 			savePref(context, mAppWidgetId, textColor.toString(), "textColor_");
+			savePref(context, mAppWidgetId, bgColor.toString(), "bgColor_");
 			
 			strSpin = (Spinner) findViewById(R.id.actionSpinner);
 			action = (int) (strSpin.getSelectedItemId());
 			savePref(context, mAppWidgetId, action.toString(), "action_");
+			
+			Spinner bgSpin = (Spinner) findViewById(R.id.bgColorSpinner);
+			Integer bg = (int) (bgSpin.getSelectedItemId());
+			savePref(context, mAppWidgetId, bg.toString(), "bg_");
 			
 			cb = (CheckBox) findViewById(R.id.CBVathmos);
 			if (cb.isChecked())
@@ -110,7 +120,7 @@ public class StrWidgetConfig extends Activity {
 
 			AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 			StrWidget.updateAppWidget(context, appWidgetManager, mAppWidgetId,
-					id, action, textColor.toString(), Vpref, Npref, Ipref, Dpref, Ppref);
+					id, action, textColor.toString(), bg.toString(), Vpref, Npref, Ipref, Dpref, Ppref);
 
 			Intent resultValue = new Intent();
 			resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
@@ -123,7 +133,7 @@ public class StrWidgetConfig extends Activity {
 		public void onClick(View v) {
 
 			final ColorPickerDialog d = new ColorPickerDialog(
-					StrWidgetConfig.this, 0xff000000);
+					StrWidgetConfig.this, textColor);
 			d.setAlphaSliderVisible(true);
 
 			d.setButton(getResources().getString(R.string.ok),
@@ -143,6 +153,31 @@ public class StrWidgetConfig extends Activity {
 			d.show();
 		}
 	};
+	
+//	View.OnClickListener pickBgColor = new View.OnClickListener() {
+//		public void onClick(View v) {
+//
+//			final ColorPickerDialog d = new ColorPickerDialog(
+//					StrWidgetConfig.this, bgColor);
+//			d.setAlphaSliderVisible(true);
+//
+//			d.setButton(getResources().getString(R.string.ok),
+//					new DialogInterface.OnClickListener() {
+//						public void onClick(DialogInterface dialog, int which) {
+//							bgColor = d.getColor();
+//							findViewById(R.id.widgetButtonBgColor)
+//									.setBackgroundColor(bgColor);
+//						}
+//					});
+//
+//			d.setButton2(getResources().getString(R.string.cancel),
+//					new DialogInterface.OnClickListener() {
+//						public void onClick(DialogInterface dialog, int which) {
+//						}
+//					});
+//			d.show();
+//		}
+//	};
 
 	static void savePref(Context context, int appWidgetId, String text, String key) {
 		SharedPreferences.Editor prefs = context.getSharedPreferences(
@@ -174,6 +209,18 @@ public class StrWidgetConfig extends Activity {
 		actionSpin.setAdapter(adapter1);
 	}
 	
+	void setbgColorSpinner(){
+		Spinner actionSpin = (Spinner) findViewById(R.id.bgColorSpinner);
+		String[] actionList = { 
+				getResources().getString(R.string.none),
+				getResources().getString(R.string.light), 
+				getResources().getString(R.string.dark)};
+		ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, actionList);
+		adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		actionSpin.setAdapter(adapter1);
+	}
+	
 	void setStrSpinner(){
 		Spinner strSpin = (Spinner) findViewById(R.id.strSpinner);
 		final Integer N = Str.getLengh();
@@ -192,3 +239,5 @@ public class StrWidgetConfig extends Activity {
 		strSpin.setAdapter(adapter);
 	}
 }
+
+

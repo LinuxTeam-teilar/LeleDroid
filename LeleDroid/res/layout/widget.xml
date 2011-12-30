@@ -1,32 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/widg" android:layout_width="wrap_content"
-	android:paddingBottom="5dp" android:paddingTop="5dp"
-	android:layout_height="wrap_content" android:clickable="true"
-	android:focusable="true" android:orientation="vertical"
-	android:background="@layout/widget_color">
-	<TextView android:text="" android:id="@+id/strVathmos"
-		android:textColor="#000" android:layout_gravity="center"
-		android:layout_width="wrap_content" android:layout_marginRight="10dp"
-		android:layout_marginLeft="10dp" android:layout_height="wrap_content"></TextView>
-	<TextView android:text="" android:id="@+id/strName"
-		android:textColor="#000" android:layout_gravity="center"
-		android:layout_width="wrap_content" android:layout_marginRight="10dp"
-		android:layout_marginLeft="10dp" android:layout_marginBottom="3dp"
-		android:textStyle="bold" android:textSize="16dp"
-		android:layout_height="wrap_content"></TextView>
-	<ImageView android:id="@+id/strImg" android:layout_height="90dp"
-		android:layout_gravity="center_horizontal" android:layout_marginRight="10dp"
-		android:layout_marginLeft="10dp" android:layout_width="90dp"
-		android:src="@drawable/icon" android:clickable="true"></ImageView>
-	<TextView android:text="" android:id="@+id/strMeres"
-		android:textColor="#000" android:layout_gravity="center"
-		android:layout_width="wrap_content" android:layout_marginRight="10dp"
-		android:layout_marginLeft="10dp" android:layout_height="wrap_content"></TextView>
-	<ProgressBar android:id="@+id/strProg"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:max="100" android:progress="0" android:layout_marginTop="5dp"
-		android:layout_marginRight="10dp" android:layout_marginLeft="10dp"
-		style="?android:attr/progressBarStyleHorizontal" android:maxHeight="15dip"
-		android:minHeight="12dip" android:minWidth="80dip"/>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/widg"
+	android:layout_width="wrap_content"
+	android:paddingBottom="5dp"
+	android:paddingTop="5dp"
+	android:layout_height="wrap_content"
+	android:clickable="true"
+	android:focusable="true"
+	android:orientation="vertical"
+	android:background="@layout/bg_dark">
+		<TextView
+			android:text=""
+			android:id="@+id/strVathmos"
+			android:textColor="#000"
+			android:layout_gravity="center"
+			android:layout_width="wrap_content"
+			android:layout_marginRight="10dp"
+			android:layout_marginLeft="10dp"
+			android:layout_height="wrap_content"></TextView>
+		<TextView
+			android:text=""
+			android:id="@+id/strName"
+			android:textColor="#000"
+			android:layout_gravity="center"
+			android:layout_width="wrap_content"
+			android:layout_marginRight="10dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginBottom="3dp"
+			android:textStyle="bold"
+			android:textSize="16dp"
+			android:layout_height="wrap_content"></TextView>
+		<ImageView
+			android:id="@+id/strImg"
+			android:layout_height="90dp"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginRight="10dp"
+			android:layout_marginLeft="10dp"
+			android:layout_width="90dp"
+			android:clickable="true"></ImageView>
+		<TextView
+			android:text=""
+			android:id="@+id/strMeres"
+			android:textColor="#000"
+			android:layout_gravity="center"
+			android:layout_width="wrap_content"
+			android:layout_marginRight="10dp"
+			android:layout_marginLeft="10dp"
+			android:layout_height="wrap_content"></TextView>
+		<ProgressBar
+			android:id="@+id/strProg"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:max="100"
+			android:progress="0"
+			android:layout_marginTop="5dp"
+			android:layout_marginRight="10dp"
+			android:layout_marginLeft="10dp"
+			style="?android:attr/progressBarStyleHorizontal"
+			android:maxHeight="15dip"
+			android:minHeight="12dip"
+			android:minWidth="80dip" />
 </LinearLayout>

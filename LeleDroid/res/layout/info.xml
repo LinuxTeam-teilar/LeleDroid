@@ -32,16 +32,18 @@
 			android:id="@+id/site" android:layout_width="wrap_content"
 			android:layout_height="wrap_content"></TextView>
 
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		<!--  LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 			android:layout_margin="5dip" android:orientation="horizontal"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
 			android:gravity="bottom">
 			<Button android:text="@string/licence" android:id="@+id/licenceButton"
-				android:onClick="licenceButtonClicked" android:layout_width="110dip"
+				android:drawableLeft="@drawable/ic_menu_info_details"
+				android:onClick="licenceButtonClicked" android:layout_width="155dip"
 				android:layout_height="wrap_content"></Button>
 			<Button android:text="@string/donate" android:id="@+id/donateButton"
-				android:onClick="donateButtonClicked" android:layout_width="110dip"
+				android:drawableLeft="@drawable/ic_menu_star"
+				android:onClick="donateButtonClicked" android:layout_width="155dip"
 				android:layout_height="wrap_content"></Button>
-		</LinearLayout>
+		</LinearLayout -->
 	</LinearLayout>
 </ScrollView>

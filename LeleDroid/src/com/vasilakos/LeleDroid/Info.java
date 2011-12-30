@@ -12,6 +12,8 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -70,4 +72,23 @@ public class Info extends Activity {
 				});
 		alertbox.show();
 	}
+	
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(0, 1, 0, R.string.licence).setIcon(R.drawable.ic_menu_info_details);
+		menu.add(0, 2, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
+		return true;
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case 1:
+			licenceButtonClicked(null);
+			return true;
+		case 2:
+			donateButtonClicked(null);
+			return true;
+		}
+		return false;
+	}
+	
 }

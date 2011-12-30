@@ -13,6 +13,7 @@
 	<string name="delete">Delete</string>
 	
 	<string name="dateOut">End date</string>
+	<string name="deleteConfirmation">Delete confirmation</string>
 	<string name="dateIn">Start date</string>
 	<string name="strName">Name</string>
 	<string name="adeia">Days off</string>
@@ -39,6 +40,7 @@
 
 	<string name="widgetTitle">leleDroid Widget Configuration</string>
 	<string name="textColor">Text color</string>
+	<string name="bgColor">Χρώμα παρασκηνίου</string>
 	<string name="widgetDisplayVathmos">Display soldiers\' military rank</string>
 	<string name="widgetDisplayName">Display soldiers\' name</string>
 	<string name="widgetDisplayImage">Display soldiers\' military rank image</string>
@@ -50,8 +52,9 @@
 	</string>
 	<string name="selectAction">Select on click action</string>
 	<string name="none">None</string>
+	<string name="light">Light</string>
+	<string name="dark">Dark</string>
 	
-
 	<string name="emptyAdeia">Please fill in the days off</string>
 	<string name="emptyName">Please fill in the name of the soldier</string>
 	<string name="emptyFilaki">Please fill in the extra days</string>
@@ -60,12 +63,11 @@
 
 	<string name="donate">Donate</string>
 	<string name="contact">Contact :</string>
-	<string name="site">http://linuxteam.cs.teilar.gr/~forfolias/leleDroid/
-	</string>
+	<string name="site">http://code.google.com/p/leledroid/</string>
+
 	<string name="copyright">Copyright (c) 2011 Βασιλάκος Γεώργιος</string>
 	<string name="description">LeleDroid displays information about
-		the remaining
-		military service of a soldier.</string>
+		the remaining military service of a soldier.</string>
 	<string name="licence">Licence</string>
 	<string name="licenceText">This program is free software: you can redistribute
 		it and/or modify
