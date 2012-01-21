@@ -31,13 +31,13 @@ public class Info extends Activity {
 		link.setText("<a href='" + link.getText() + "'>" + link.getText()
 				+ "</a>");
 		cont.setText(cont.getText()
-				+ " <a href='mailto:forfolias@gmail.com'></a>");
-		Linkify.addLinks(cont, Pattern.compile("forfolias@gmail.com"),
+				+ " <a href='mailto:giorg.vasilakos@gmail.com'></a>");
+		Linkify.addLinks(cont, Pattern.compile("giorg.vasilakos@gmail.com"),
 				"http://");
 		Linkify.addLinks(link,
 				Pattern.compile(getResources().getString(R.id.site)), "http://");
 		cont.setText(Html.fromHtml(cont.getText()
-				+ "<a href='mailto:forfolias@gmail.com'>forfolias@gmail.com</a>"));
+				+ "<a href='mailto:giorg.vasilakos@gmail.com'>giorg.vasilakos@gmail.com</a>"));
 		link.setText(Html.fromHtml((String) link.getText()));
 		cont.setMovementMethod(LinkMovementMethod.getInstance());
 		link.setMovementMethod(LinkMovementMethod.getInstance());
@@ -53,7 +53,6 @@ public class Info extends Activity {
 				return true;
 			}
 		});
-
 	}
 
 	public void donateButtonClicked(View v) {

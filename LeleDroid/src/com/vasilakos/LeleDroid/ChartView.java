@@ -89,6 +89,8 @@ public class ChartView extends Activity {
 		}
 		renderer.setLabelsTextSize(10);
 		renderer.setShowLegend(false);
+		renderer.setPanEnabled(false);
+		renderer.setZoomEnabled(false);
 		return renderer;
 	}
 

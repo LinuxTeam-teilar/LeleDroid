@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="version">1.4</string>
+	<string name="version">1.5</string>
 	<string name="app_name">leleDroid</string>
 	<string name="info">Πληροφορίες</string>
 	<string name="str">Στρατιώτης</string>

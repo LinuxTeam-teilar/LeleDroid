@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="version">1.3</string>
+	<string name="version">1.5</string>
 	<string name="app_name">leleDroid</string>
 	<string name="info">Information</string>
 	<string name="str">Soldier</string>
@@ -11,9 +11,9 @@
 	<string name="chart">Pie chart</string>
 	<string name="edit">Edit</string>
 	<string name="delete">Delete</string>
+	<string name="deleteConfirmation">Delete confirmation</string>
 	
 	<string name="dateOut">End date</string>
-	<string name="deleteConfirmation">Delete confirmation</string>
 	<string name="dateIn">Start date</string>
 	<string name="strName">Name</string>
 	<string name="adeia">Days off</string>
@@ -31,8 +31,7 @@
 	<string name="pososto">Percentage...</string>
 	<string name="plusToday">plus today</string>
 
-	<string name="deleteMessage">Are you sure you want to delete the selected
-		soldier?</string>
+	<string name="deleteMessage">Are you sure you want to delete the selected soldier?</string>
 
 	<string name="ok">Ok</string>
 	<string name="cancel">Cancel</string>
@@ -48,8 +47,7 @@
 	<string name="widgetDisplayProgress">Display percentage progress bar</string>
 	<string name="emptyList">There is no available soldier. Please add a soldier
 		at the leleDroid application</string>
-	<string name="emptyDisplay">Select at least one component to display
-	</string>
+	<string name="emptyDisplay">Select at least one component to display</string>
 	<string name="selectAction">Select on click action</string>
 	<string name="none">None</string>
 	<string name="light">Light</string>
@@ -64,7 +62,6 @@
 	<string name="donate">Donate</string>
 	<string name="contact">Contact :</string>
 	<string name="site">http://code.google.com/p/leledroid/</string>
-
 	<string name="copyright">Copyright (c) 2011 Βασιλάκος Γεώργιος</string>
 	<string name="description">LeleDroid displays information about
 		the remaining military service of a soldier.</string>
