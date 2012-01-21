@@ -56,7 +56,7 @@ public class StrWidget extends AppWidgetProvider {
 				R.layout.widget);
 
 		Str theOne = Str.getStrFromId(id);
-		String vathmos = theOne.getVathmo();
+		String vathmos = context.getResources().getString(theOne.getVathmo());
 		String onoma = theOne.getName();
 		String meres = theOne.getRestDays().toString();
 

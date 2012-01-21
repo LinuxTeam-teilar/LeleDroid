@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="version">1.5</string>
-	<string name="app_name">leleDroid</string>
+	<string name="app_name">LeleDroid</string>
 	<string name="info">Πληροφορίες</string>
 	<string name="str">Στρατιώτης</string>
 	<string name="add">Προσθήκη στρατιώτη</string>
@@ -12,6 +12,7 @@
 	<string name="edit">Επεξεργασία</string>
 	<string name="delete">Διαγραφή</string>
 	<string name="deleteConfirmation">Επιβεβαίωση διαγραφής</string>
+	<string name="vathmoiInfo">Κλίμακα βαθμών</string>
 
 	<string name="dateOut">Ημερομηνία απόλυσης</string>
 	<string name="dateIn">Ημερομηνία κατάταξης</string>
@@ -37,7 +38,7 @@
 	<string name="cancel">Άκυρο</string>
 	<string name="back">Επιστροφή</string>
 
-	<string name="widgetTitle">Ρυθμίσεις του leleDroid widget</string>
+	<string name="widgetTitle">Ρυθμίσεις του LeleDroid widget</string>
 	<string name="textColor">Χρώμα κειμένου</string>
 	<string name="bgColor">Χρώμα παρασκηνίου</string>
 	<string name="widgetDisplayVathmos">Εμφάνιση λελεδοβαθμού</string>
@@ -46,7 +47,7 @@
 	<string name="widgetDisplayDays">Εμφάνιση εναπομείναντων ημερών</string>
 	<string name="widgetDisplayProgress">Εμφάνιση μπάρας ποσοστού</string>
 	<string name="emptyList">Δεν υπάρχει κάποιος διαθέσιμος στρατιώτης. Παρακαλώ
-		προσθέστε κάποιον από την εφαρμογή leleDroid</string>
+		προσθέστε κάποιον από την εφαρμογή LeleDroid</string>
 	<string name="emptyDisplay">Επιλέξτε τουλάχιστον ένα στοιχείο για εμφάνιση</string>	
 	<string name="selectAction">Ενέργεια κατά το κλικ</string>
 	<string name="none">Τίποτα</string>
@@ -63,7 +64,7 @@
 	<string name="contact">Επικοινωνία :</string>
 	<string name="site">http://code.google.com/p/leledroid/</string>
 	<string name="copyright">Copyright (c) 2011 Βασιλάκος Γεώργιος</string>
-	<string name="description">Το leleDroid εμφανίζει πληροφορίες σχετικά με το
+	<string name="description">Το LeleDroid εμφανίζει πληροφορίες σχετικά με το
 		υπόλοιπο της θητείας ενός στρατιώτη.</string>
 	<string name="licence">Άδεια χρήσης</string>
 	<string name="licenceText">This program is free software: you can redistribute
@@ -87,4 +88,24 @@
 		Public License
 		along with this program. If not, see
 		http://www.gnu.org/licenses/</string>
+		
+		<string name="v0">ΣΤΡΑΤΙΩΤΗΣ</string>
+		<string name="v1">ΥΠΟΔΕΚΑΝΕΑΣ</string>
+		<string name="v2">ΔΕΚΑΝΕΑΣ</string>
+		<string name="v3">ΛΟΧΙΑΣ</string>
+		<string name="v4">ΕΠΙΛΟΧΙΑΣ</string>
+		<string name="v5">ΑΡΧΙΛΟΧΙΑΣ</string>
+		<string name="v6">ΑΝΘΥΠΑΣΠΙΣΤΗΣ</string>
+		<string name="v7">ΑΝΘΥΠΟΛΟΧΑΓΟΣ</string>
+		<string name="v8">ΥΠΟΛΟΧΑΓΟΣ</string>
+		<string name="v9">ΛΟΧΑΓΟΣ</string>
+		<string name="v10">ΤΑΓΜΑΤΑΡΧΗΣ</string>
+		<string name="v11">ΑΝΤΙΣΥΝΤΑΓΜΑΤΑΡΧΗΣ</string>
+		<string name="v12">ΣΥΝΤΑΓΜΑΤΑΡΧΗΣ</string>
+		<string name="v13">ΤΑΞΙΑΡΧΟΣ</string>
+		<string name="v14">ΥΠΟΣΤΡΑΤΗΓΟΣ</string>
+		<string name="v15">ΑΝΤΙΣΤΡΑΤΗΓΟΣ</string>
+		<string name="v16">ΣΤΡΑΤΗΓΟΣ</string>
+		<string name="v17">ΠΟΛΙΤΗΣ</string>
+
 </resources>

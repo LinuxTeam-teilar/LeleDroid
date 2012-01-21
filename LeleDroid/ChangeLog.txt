@@ -1,5 +1,18 @@
 Changelog
 
+leleDroid 1.5 - 21/1/2012
+-------------------------
+Add 3 types of background for widget
+Add icons to buttons and options menu
+Remove title on most activities
+Remove buttons from details activity
+Remove buttons from info activity
+Add options menu on details activity
+Add options menu on info activity
+Add confirnation dialog on delete
+Bug fix (floating chart)
+Bug fix (landscape chart view)
+
 leleDroid 1.4 - 18/3/2011
 -------------------------
 Add chart dialog at ContextMenu

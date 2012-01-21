@@ -216,46 +216,46 @@ public class Str extends HashMap {
 		return list;
 	}
 	
-	public String getVathmo(){
+	public int getVathmo(){
 		Float totalPososto = getPososto();
-		String vath = "";
+		int vath = 0;
 
 		if (totalPososto < 8) {
-			vath = "ΣΤΡΑΤΙΩΤΗΣ";
+			vath = getResourceVathmo(0);
 		} else if (totalPososto < 14) {
-			vath = "ΥΠΟΔΕΚΑΝΕΑΣ";
+			vath = getResourceVathmo(1);
 		} else if (totalPososto < 20) {
-			vath = "ΔΕΚΑΝΕΑΣ";
+			vath = getResourceVathmo(2);
 		} else if (totalPososto < 22) {
-			vath = "ΛΟΧΙΑΣ";
+			vath = getResourceVathmo(3);
 		} else if (totalPososto < 28) {
-			vath = "ΕΠΙΛΟΧΙΑΣ";
+			vath = getResourceVathmo(4);
 		} else if (totalPososto < 34) {
-			vath = "ΑΡΧΙΛΟΧΙΑΣ";
+			vath = getResourceVathmo(5);
 		} else if (totalPososto < 40) {
-			vath = "ΑΝΘΥΠΑΣΠΙΣΤΗΣ";
+			vath = getResourceVathmo(6);
 		} else if (totalPososto < 45) {
-			vath = "ΑΝΘΥΠΟΛΟΧΑΓΟΣ";
+			vath = getResourceVathmo(7);
 		} else if (totalPososto < 50) {
-			vath = "ΥΠΟΛΟΧΑΓΟΣ";
+			vath = getResourceVathmo(8);
 		} else if (totalPososto < 56) {
-			vath = "ΛΟΧΑΓΟΣ";
+			vath = getResourceVathmo(9);
 		} else if (totalPososto < 62) {
-			vath = "ΤΑΓΜΑΤΑΡΧΗΣ";
+			vath = getResourceVathmo(10);
 		} else if (totalPososto < 68) {
-			vath = "ΑΝΤΙΣΥΝΤΑΓΜΑΤΑΡΧΗΣ";
+			vath = getResourceVathmo(11);
 		} else if (totalPososto < 73) {
-			vath = "ΣΥΝΤΑΓΜΑΤΑΡΧΗΣ";
+			vath = getResourceVathmo(12);
 		} else if (totalPososto < 79) {
-			vath = "ΤΑΞΙΑΡΧΟΣ";
+			vath = getResourceVathmo(13);
 		} else if (totalPososto < 85) {
-			vath = "ΥΠΟΣΤΡΑΤΗΓΟΣ";
+			vath = getResourceVathmo(14);
 		} else if (totalPososto < 91) {
-			vath = "ΑΝΤΙΣΤΡΑΤΗΓΟΣ";
+			vath = getResourceVathmo(15);
 		} else if (totalPososto < 97) {
-			vath = "ΣΤΡΑΤΗΓΟΣ";
+			vath = getResourceVathmo(16);
 		} else {
-			vath = "ΠΟΛΙΤΗΣ";
+			vath = getResourceVathmo(17);
 		}
 		return vath;
 	}
@@ -478,6 +478,69 @@ public class Str extends HashMap {
 		File tmp = new File(dataFile + ".tmp");
 		File txt = new File(dataFile);
 		tmp.renameTo(txt);
+	}
+	
+	public static int getResourceVathmo(int vathmos){
+		int va = 0;
+		switch (vathmos) {
+		case 0:
+			va = R.string.v0;
+			break;
+		case 1:
+			va = R.string.v1;
+			break;
+		case 2:
+			va = R.string.v2;
+			break;
+		case 3:
+			va = R.string.v3;
+			break;
+		case 4:
+			va = R.string.v4;
+			break;
+		case 5:
+			va = R.string.v5;
+			break;
+		case 6:
+			va = R.string.v6;
+			break;
+		case 7:
+			va = R.string.v7;
+			break;
+		case 8:
+			va = R.string.v8;
+			break;
+		case 9:
+			va = R.string.v9;
+			break;
+		case 10:
+			va = R.string.v10;
+			break;
+		case 11:
+			va = R.string.v11;
+			break;
+		case 12:
+			va = R.string.v12;
+			break;
+		case 13:
+			va = R.string.v13;
+			break;
+		case 14:
+			va = R.string.v14;
+			break;
+		case 15:
+			va = R.string.v15;
+			break;
+		case 16:
+			va = R.string.v16;
+			break;
+		case 17:
+			va = R.string.v17;
+			break;
+		default:
+			break;
+		}
+		return va;
 	}
 
 }

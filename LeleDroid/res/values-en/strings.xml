@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="version">1.5</string>
-	<string name="app_name">leleDroid</string>
+	<string name="app_name">LeleDroid</string>
 	<string name="info">Information</string>
 	<string name="str">Soldier</string>
 	<string name="add">Add soldier</string>
@@ -12,6 +12,7 @@
 	<string name="edit">Edit</string>
 	<string name="delete">Delete</string>
 	<string name="deleteConfirmation">Delete confirmation</string>
+	<string name="vathmoiInfo">Grade ranges</string>
 	
 	<string name="dateOut">End date</string>
 	<string name="dateIn">Start date</string>
@@ -37,7 +38,7 @@
 	<string name="cancel">Cancel</string>
 	<string name="back">Back</string>
 
-	<string name="widgetTitle">leleDroid Widget Configuration</string>
+	<string name="widgetTitle">LeleDroid Widget Configuration</string>
 	<string name="textColor">Text color</string>
 	<string name="bgColor">Χρώμα παρασκηνίου</string>
 	<string name="widgetDisplayVathmos">Display soldiers\' military rank</string>
@@ -46,7 +47,7 @@
 	<string name="widgetDisplayDays">Display soldiers\' rest service days</string>
 	<string name="widgetDisplayProgress">Display percentage progress bar</string>
 	<string name="emptyList">There is no available soldier. Please add a soldier
-		at the leleDroid application</string>
+		at the LeleDroid application</string>
 	<string name="emptyDisplay">Select at least one component to display</string>
 	<string name="selectAction">Select on click action</string>
 	<string name="none">None</string>

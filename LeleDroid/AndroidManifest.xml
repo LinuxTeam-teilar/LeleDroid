@@ -53,6 +53,9 @@
 			android:name=".ChartView"
 			android:label="@string/chart"
 			android:theme="@android:style/Theme.Dialog"></activity>
+		<activity
+			android:name=".Vathmoi"
+			android:theme="@android:style/Theme.Dialog"></activity>
 	</application>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<supports-screens

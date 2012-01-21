@@ -1,5 +1,6 @@
 package com.vasilakos.LeleDroid;
 
+import java.io.InputStream;
 import java.util.regex.Pattern;
 
 import android.app.Activity;
@@ -56,8 +57,10 @@ public class Info extends Activity {
 	}
 
 	public void donateButtonClicked(View v) {
-	    Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=M5HYBKFQYS84S&lc=GR&item_name=Donation%20to%20LeleDroid%20application&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted") );
-	    startActivity(browse);
+		Intent browse = new Intent(
+				Intent.ACTION_VIEW,
+				Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=M5HYBKFQYS84S&lc=GR&item_name=Donation%20to%20LeleDroid%20application&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"));
+		startActivity(browse);
 	}
 
 	public void licenceButtonClicked(View v) {
@@ -71,10 +74,36 @@ public class Info extends Activity {
 				});
 		alertbox.show();
 	}
-	
+
+	public void vathmoiButtonClicked(View v) {
+		AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
+		String text = "";
+		try {
+			InputStream in_s = getResources().openRawResource(
+					R.raw.explain_vathmoi);
+
+			byte[] b = new byte[in_s.available()];
+			in_s.read(b);
+			text = new String(b);
+		} catch (Exception e) {
+			text = "File not found!";
+		}
+		alertbox.setMessage(text).setTitle(
+				getResources().getString(R.string.vathmoiInfo));
+		alertbox.setNeutralButton(getResources().getString(R.string.back),
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface arg0, int arg1) {
+					}
+				});
+		alertbox.show();
+	}
+
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 1, 0, R.string.licence).setIcon(R.drawable.ic_menu_info_details);
+		menu.add(0, 1, 0, R.string.licence).setIcon(
+				R.drawable.ic_menu_info_details);
 		menu.add(0, 2, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
+		menu.add(0, 3, 0, R.string.vathmoiInfo).setIcon(
+				R.drawable.ic_menu_info_details);
 		return true;
 	}
 
@@ -86,8 +115,11 @@ public class Info extends Activity {
 		case 2:
 			donateButtonClicked(null);
 			return true;
+		case 3:
+			vathmoiButtonClicked(null);
+			return true;
 		}
 		return false;
 	}
-	
+
 }
