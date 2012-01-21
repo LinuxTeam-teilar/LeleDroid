@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
@@ -28,6 +29,13 @@ public class Info extends Activity {
 
 		TextView link = (TextView) findViewById(R.id.site);
 		TextView cont = (TextView) findViewById(R.id.contact);
+		TextView ver = (TextView) findViewById(R.id.version);
+		try {
+			ver.setText(getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
+		} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		link.setText("<a href='" + link.getText() + "'>" + link.getText()
 				+ "</a>");
@@ -103,7 +111,7 @@ public class Info extends Activity {
 				R.drawable.ic_menu_info_details);
 		menu.add(0, 2, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
 		menu.add(0, 3, 0, R.string.vathmoiInfo).setIcon(
-				R.drawable.ic_menu_info_details);
+				R.drawable.ic_menu_view);
 		return true;
 	}
 
