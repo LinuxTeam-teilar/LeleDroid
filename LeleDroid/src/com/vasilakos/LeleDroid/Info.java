@@ -105,13 +105,25 @@ public class Info extends Activity {
 				});
 		alertbox.show();
 	}
+	
+	public void shareButtonClicked() {
+		Intent intent = new Intent(Intent.ACTION_SEND);
+
+		intent.setType("text/plain");
+		intent.putExtra(Intent.EXTRA_SUBJECT,
+				getResources().getString(R.string.share));
+		intent.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.shareAppText) + " " + getResources().getString(R.string.site) );
+
+		startActivity(Intent.createChooser(intent, getString(R.string.share)));
+	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menu.add(0, 1, 0, R.string.licence).setIcon(
 				R.drawable.ic_menu_info_details);
-		menu.add(0, 2, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
+		menu.add(0, 2, 0, R.string.share).setIcon(R.drawable.ic_menu_share);
 		menu.add(0, 3, 0, R.string.vathmoiInfo).setIcon(
 				R.drawable.ic_menu_view);
+		menu.add(0, 4, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
 		return true;
 	}
 
@@ -121,10 +133,13 @@ public class Info extends Activity {
 			licenceButtonClicked(null);
 			return true;
 		case 2:
-			donateButtonClicked(null);
+			shareButtonClicked();
 			return true;
 		case 3:
 			vathmoiButtonClicked(null);
+			return true;
+		case 4:
+			donateButtonClicked(null);
 			return true;
 		}
 		return false;

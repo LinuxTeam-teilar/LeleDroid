@@ -15,6 +15,10 @@
 			android:text="ONOMA STRATIOTI"
 			android:layout_width="fill_parent"
 			android:gravity="center_horizontal"
+			android:textSize="16sp"
+			android:textColor="#FFF"
+			android:shadowColor="#777"  
+        	android:shadowRadius="3"
 			android:layout_height="wrap_content"
 			android:layout_margin="8dip"></TextView>
 		<LinearLayout

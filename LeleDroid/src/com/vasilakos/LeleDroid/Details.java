@@ -1,5 +1,6 @@
 package com.vasilakos.LeleDroid;
 
+import java.text.DecimalFormat;
 import java.util.GregorianCalendar;
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
@@ -41,6 +42,8 @@ public class Details extends Activity {
 	TextView posostoTv;
 	ProgressBar posostoPB;
 	Str str;
+	
+	DecimalFormat twoDigit;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,7 +60,9 @@ public class Details extends Activity {
 		monthsTv = (TextView) findViewById(R.id.months);
 		posostoPB = (ProgressBar) findViewById(R.id.posostoProgress);
 		posostoTv = (TextView) findViewById(R.id.pososto);
-
+		
+		twoDigit = new DecimalFormat("#,##0.00");
+		
 		setLabels();
 
 		MyCount counter = new MyCount(Long.parseLong((String) secondsTv
@@ -130,11 +135,11 @@ public class Details extends Activity {
 		if (adeia < 0) {
 			adeia = 0;
 		}
-		
+
 		if (ipiretisimoYpoloipo == 0 && adeia == 0 && perasan == 0) {
 			perasan = 1;
 		}
-		
+
 		String[] labels = { adeia.toString(), ipiretisimoYpoloipo.toString(),
 				perasan.toString() };
 		GraphicalView mChartView;
@@ -161,23 +166,43 @@ public class Details extends Activity {
 			}
 		});
 	}
-	
+
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 1, 0, R.string.delete).setIcon(R.drawable.ic_menu_delete);
+		menu.add(0, 1, 0, R.string.share).setIcon(R.drawable.ic_menu_share);
 		menu.add(0, 2, 0, R.string.edit).setIcon(R.drawable.ic_menu_edit);
+		menu.add(0, 3, 0, R.string.delete).setIcon(R.drawable.ic_menu_delete);
 		return true;
 	}
-	
+
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case 1:
-			deleteButtonClicked(null);
+			shareButtonClicked();
 			return true;
 		case 2:
 			editButtonClicked(null);
 			return true;
+		case 3:
+			deleteButtonClicked(null);
+			return true;
 		}
 		return false;
+	}
+
+	public void shareButtonClicked() {
+		Intent intent = new Intent(Intent.ACTION_SEND);
+
+		intent.setType("text/plain");
+		intent.putExtra(Intent.EXTRA_SUBJECT,
+				getResources().getString(R.string.share));
+		intent.putExtra(
+				Intent.EXTRA_TEXT,
+				getResources().getString(str.getVathmo()) + " " + str.getName()
+						+ "\n" + str.getRestDays() + " "
+						+ getResources().getString(R.string.plusToday)
+						+ " (" + twoDigit.format(str.getPososto()) + "%)"
+				);
+		startActivity(Intent.createChooser(intent, getString(R.string.share)));
 	}
 
 	public void editButtonClicked(View v) {
@@ -219,24 +244,26 @@ public class Details extends Activity {
 
 	public void setName(Float totalPososto) {
 		ImageView img = (ImageView) findViewById(R.id.vathmosImg);
-		
+
 		img.setOnClickListener(new OnClickListener() {
-			
+
 			public void onClick(View v) {
-				Intent view = new Intent(getBaseContext(), com.vasilakos.LeleDroid.Vathmoi.class);
+				Intent view = new Intent(getBaseContext(),
+						com.vasilakos.LeleDroid.Vathmoi.class);
 				startActivity(view);
 			}
 		});
 
 		img.setImageDrawable(getResources().getDrawable(str.getImg()));
-		nameTv.setText(getResources().getString(str.getVathmo()) + " " + str.getName());
+		nameTv.setText(getResources().getString(str.getVathmo()) + " "
+				+ str.getName());
 	}
 
 	public void setPososto(Float totalPososto) {
 		if (totalPososto < 0)
 			totalPososto = (float) 0;
 		posostoPB.setProgress(totalPososto.intValue());
-		posostoTv.setText(totalPososto.intValue() + "%");
+		posostoTv.setText(twoDigit.format(totalPososto) + "%");
 	}
 
 	public void setRestOfTv() {

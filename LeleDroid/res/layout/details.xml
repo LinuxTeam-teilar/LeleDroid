@@ -11,6 +11,10 @@
 		<TextView
 			android:id="@+id/onoma"
 			android:text="ONOMA STRATIOTI"
+			android:textSize="16sp"
+			android:textColor="#FFF"
+			android:shadowColor="#777"  
+        	android:shadowRadius="3"
 			android:layout_margin="5dip"
 			android:layout_width="fill_parent"
 			android:gravity="center_horizontal"

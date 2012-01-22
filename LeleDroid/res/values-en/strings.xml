@@ -12,6 +12,9 @@
 	<string name="delete">Delete</string>
 	<string name="deleteConfirmation">Delete confirmation</string>
 	<string name="vathmoiInfo">Grade ranges</string>
+	<string name="share">Share</string>
+	<string name="shareAppText">Check LeleDroid, an amazing application for Android!\n
+You will find it free at the Android Market and at </string>
 	
 	<string name="dateOut">End date</string>
 	<string name="dateIn">Start date</string>
@@ -39,7 +42,7 @@
 
 	<string name="widgetTitle">LeleDroid Widget Configuration</string>
 	<string name="textColor">Text color</string>
-	<string name="bgColor">Χρώμα παρασκηνίου</string>
+	<string name="bgColor">Background color</string>
 	<string name="widgetDisplayVathmos">Display soldiers\' military rank</string>
 	<string name="widgetDisplayName">Display soldiers\' name</string>
 	<string name="widgetDisplayImage">Display soldiers\' military rank image</string>
