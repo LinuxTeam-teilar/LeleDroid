@@ -116,6 +116,12 @@ public class Info extends Activity {
 
 		startActivity(Intent.createChooser(intent, getString(R.string.share)));
 	}
+	
+	public void onRateButtonClick(View v) {
+		Intent intent = new Intent(Intent.ACTION_VIEW);
+		intent.setData(Uri.parse("market://details?id=com.vasilakos.LeleDroid"));
+		startActivity(intent);
+	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menu.add(0, 1, 0, R.string.licence).setIcon(
@@ -123,7 +129,7 @@ public class Info extends Activity {
 		menu.add(0, 2, 0, R.string.share).setIcon(R.drawable.ic_menu_share);
 		menu.add(0, 3, 0, R.string.vathmoiInfo).setIcon(
 				R.drawable.ic_menu_view);
-		menu.add(0, 4, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
+		menu.add(0, 4, 0, R.string.rate).setIcon(R.drawable.ic_menu_star);
 		return true;
 	}
 
@@ -139,7 +145,7 @@ public class Info extends Activity {
 			vathmoiButtonClicked(null);
 			return true;
 		case 4:
-			donateButtonClicked(null);
+			onRateButtonClick(null);
 			return true;
 		}
 		return false;

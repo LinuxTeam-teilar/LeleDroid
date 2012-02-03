@@ -64,7 +64,7 @@ public class leleDroid extends Activity {
 
 		switch (item.getItemId()) {
 
-			/* View Str details */
+		/* View Str details */
 		case 1:
 			Intent view = new Intent(this,
 					com.vasilakos.LeleDroid.Details.class);
@@ -72,7 +72,7 @@ public class leleDroid extends Activity {
 			view.putExtras(b);
 			startActivity(view);
 			return true;
-			
+
 			/* View Str chart dialog */
 		case 2:
 			Intent viewChart = new Intent(this,
@@ -93,7 +93,7 @@ public class leleDroid extends Activity {
 
 			/* Delete Str */
 		case 4:
-			
+
 			DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					switch (which) {
@@ -115,10 +115,12 @@ public class leleDroid extends Activity {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage(getResources().getString(R.string.delete))
 					.setPositiveButton(R.string.ok, dialogClickListener)
-					.setMessage(getResources().getString(R.string.deleteMessage))
+					.setMessage(
+							getResources().getString(R.string.deleteMessage))
 					.setNegativeButton(R.string.cancel, dialogClickListener)
-					.setTitle(getResources().getString(R.string.deleteConfirmation))
-					.show();
+					.setTitle(
+							getResources().getString(
+									R.string.deleteConfirmation)).show();
 
 			return false;
 		}
@@ -127,8 +129,9 @@ public class leleDroid extends Activity {
 
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menu.add(0, 1, 0, R.string.add).setIcon(R.drawable.ic_menu_add);
-		menu.add(0, 2, 0, R.string.info).setIcon(R.drawable.ic_menu_info_details);
-		menu.add(0, 3, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
+		menu.add(0, 2, 0, R.string.info).setIcon(
+				R.drawable.ic_menu_info_details);
+		menu.add(0, 3, 0, R.string.rate).setIcon(R.drawable.ic_menu_star);
 		return true;
 	}
 
@@ -141,13 +144,16 @@ public class leleDroid extends Activity {
 			onInfoButtonClick(null);
 			return true;
 		case 3:
-			Intent browse = new Intent(
-					Intent.ACTION_VIEW,
-					Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=M5HYBKFQYS84S&lc=GR&item_name=Donation%20to%20LeleDroid%20application&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"));
-			startActivity(browse);
+			onRateButtonClick(null);
 			return true;
 		}
 		return false;
+	}
+
+	public void onRateButtonClick(View v) {
+		Intent intent = new Intent(Intent.ACTION_VIEW);
+		intent.setData(Uri.parse("market://details?id=com.vasilakos.LeleDroid"));
+		startActivity(intent);
 	}
 
 	public void onAddButtonClick(View v) {

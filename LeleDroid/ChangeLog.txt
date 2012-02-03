@@ -1,6 +1,13 @@
 Changelog
+=========
 
+leleDroid 1.6 - 21/1/2012
+-------------------------
+Add share buttons
+Add gallery for military grades  
+Add dialog with apps' grades change
 leleDroid 1.5 - 21/1/2012
+
 -------------------------
 Add 3 types of background for widget
 Add icons to buttons and options menu

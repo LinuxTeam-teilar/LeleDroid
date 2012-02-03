@@ -12,10 +12,11 @@
 	<string name="delete">Διαγραφή</string>
 	<string name="deleteConfirmation">Επιβεβαίωση διαγραφής</string>
 	<string name="vathmoiInfo">Κλίμακα βαθμών</string>
+	<string name="rate">Βαθμολόγηση</string>
 	<string name="share">Κοινοποίηση</string>
 	<string name="shareAppText">Δες το LeleDroid, μια καταπληκτική εφαρμογή για Android!\n
 	Θα τη βρεις δωρεάν στο Android Market και στο </string>
-	<string name="shareStrText"></string>
+	
 
 	<string name="dateOut">Ημερομηνία απόλυσης</string>
 	<string name="dateIn">Ημερομηνία κατάταξης</string>
