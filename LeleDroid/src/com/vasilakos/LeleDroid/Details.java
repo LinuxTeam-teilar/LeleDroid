@@ -49,7 +49,7 @@ public class Details extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.details);
 		Bundle b = this.getIntent().getExtras();
-		str = Str.getStrFromId(b.getInt("id"));
+		str = Str.getStrFromId(b.getInt("id"), getApplicationContext());
 
 		nameTv = (TextView) findViewById(R.id.onoma);
 		secondsTv = (TextView) findViewById(R.id.secs);
@@ -238,7 +238,7 @@ public class Details extends Activity {
 	}
 
 	public void deleteButtonOk() {
-		str.delete();
+		str.delete(this);
 		finish();
 	}
 

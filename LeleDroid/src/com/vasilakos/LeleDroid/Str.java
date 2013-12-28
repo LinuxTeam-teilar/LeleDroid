@@ -1,31 +1,18 @@
 package com.vasilakos.LeleDroid;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
 
-import android.util.Log;
+import android.content.Context;
 
 @SuppressWarnings({ "rawtypes", "serial" })
 public class Str extends HashMap {
 	String name, dateIn, dateOut;
 	Integer id, adeia, filaki;
 
-	private static String dataFile = "/sdcard/leleDroid.txt";
-	private static String TAG = "leleDroid";
+//	private static String TAG = "leleDroid";
 
 	public static String KEY_NAME = "name";
 	public static String KEY_DATE = "date";
@@ -42,11 +29,20 @@ public class Str extends HashMap {
 
 	Str() {
 		setStr("", "", "", 0, 0);
-		this.setId(getLengh() + 1);
 	}
 
 	Str(String nam, String date1, String date2, Integer ad, Integer fi) {
-		this.setId(getLengh() + 1);
+		this.setId(0);
+		this.setName(nam);
+		this.setDateIn(date1);
+		this.setDateOut(date2);
+		this.setAdeia(ad);
+		this.setFilaki(fi);
+	}
+
+	Str(Integer id, String nam, String date1, String date2, Integer ad,
+			Integer fi) {
+		this.setId(id);
 		this.setName(nam);
 		this.setDateIn(date1);
 		this.setDateOut(date2);
@@ -77,28 +73,27 @@ public class Str extends HashMap {
 	public Integer getFilaki() {
 		return this.filaki;
 	}
-	
-	public Integer getRestDays(){
+
+	public Integer getRestDays() {
 		return (int) (getRestSeconds() / (60 * 60 * 24));
 	}
-	
-	public Integer getPastDays(){
+
+	public Integer getPastDays() {
 		return (int) (getPastSeconds() / (60 * 60 * 24));
 	}
-	
-	public Long getRestSeconds(){
+
+	public Long getRestSeconds() {
 		GregorianCalendar dateO = new GregorianCalendar(
 				TimeZone.getTimeZone("Europe/Athens"));
 		GregorianCalendar dateC = new GregorianCalendar(
 				TimeZone.getTimeZone("Europe/Athens"));
-		
+
 		dateO.set(Integer.parseInt(dateOut.split("/")[2]),
-				  Integer.parseInt(dateOut.split("/")[1]) - 1,
-				  Integer.parseInt(dateOut.split("/")[0]),
-				  00, 00, 01);
-		
+				Integer.parseInt(dateOut.split("/")[1]) - 1,
+				Integer.parseInt(dateOut.split("/")[0]), 00, 00, 01);
+
 		dateC = (GregorianCalendar) GregorianCalendar.getInstance();
-		
+
 		if (filaki > 0) {
 			if (filaki > 40) {
 				dateO.add(GregorianCalendar.DATE, filaki);
@@ -107,116 +102,74 @@ public class Str extends HashMap {
 			}
 		}
 
-		long rest = Math.abs(dateO.getTimeInMillis()
-				- dateC.getTimeInMillis()) / 1000;
-		
-		if (getPososto() >= 100){
+		long rest = Math.abs(dateO.getTimeInMillis() - dateC.getTimeInMillis()) / 1000;
+
+		if (getPososto() >= 100) {
 			rest = 0;
 		}
-		
+
 		return rest;
 	}
-	
-	public Long getTotalSeconds(){
+
+	public Long getTotalSeconds() {
 		GregorianCalendar dateO = new GregorianCalendar(
 				TimeZone.getTimeZone("Europe/Athens"));
 		GregorianCalendar dateI = new GregorianCalendar(
 				TimeZone.getTimeZone("Europe/Athens"));
-		
+
 		dateO.set(Integer.parseInt(dateOut.split("/")[2]),
-				  Integer.parseInt(dateOut.split("/")[1]) - 1,
-				  Integer.parseInt(dateOut.split("/")[0]),
-				  00, 00, 01);
-		
+				Integer.parseInt(dateOut.split("/")[1]) - 1,
+				Integer.parseInt(dateOut.split("/")[0]), 00, 00, 01);
+
 		dateI.set(Integer.parseInt(dateIn.split("/")[2]),
-				  Integer.parseInt(dateIn.split("/")[1]) - 1,
-				  Integer.parseInt(dateIn.split("/")[0]),
-				  12, 00, 00);
-		
-		long total =  Math.abs(dateO.getTimeInMillis()
-				- dateI.getTimeInMillis()) / 1000;
-		
+				Integer.parseInt(dateIn.split("/")[1]) - 1,
+				Integer.parseInt(dateIn.split("/")[0]), 12, 00, 00);
+
+		long total = Math
+				.abs(dateO.getTimeInMillis() - dateI.getTimeInMillis()) / 1000;
+
 		return total;
 	}
-	
-	public Long getPastSeconds(){
+
+	public Long getPastSeconds() {
 		GregorianCalendar dateI = new GregorianCalendar(
 				TimeZone.getTimeZone("Europe/Athens"));
 		GregorianCalendar dateC = new GregorianCalendar(
 				TimeZone.getTimeZone("Europe/Athens"));
-		
-		dateI.set(Integer.parseInt(dateIn.split("/")[2]),
-				  Integer.parseInt(dateIn.split("/")[1]) - 1,
-				  Integer.parseInt(dateIn.split("/")[0]),
-				  12, 00, 00);
-		
-		dateC = (GregorianCalendar) GregorianCalendar.getInstance();
 
-		long past = Math.abs(dateI.getTimeInMillis()
-				- dateC.getTimeInMillis()) / 1000;
+		int year = Integer.parseInt(dateIn.split("/")[2]);
+		if (year < 100) {
+			year += 2000;
+		}
+		dateI.set(year,
+				Integer.parseInt(dateIn.split("/")[1]) - 1,
+				Integer.parseInt(dateIn.split("/")[0]), 12, 00, 00);
+
+		dateC = (GregorianCalendar) GregorianCalendar.getInstance();
 		
-		return past;
+		return Math.abs(dateI.getTimeInMillis() - dateC.getTimeInMillis()) / 1000;
 	}
-	
-	public Float getPososto(){
+
+	public Float getPososto() {
 
 		Float totalPososto = (float) getPastSeconds() * 100 / getTotalSeconds();
-		if (totalPososto > 100){
+		if (totalPososto > 100) {
 			totalPososto = (float) 100;
 		}
 		return totalPososto;
 	}
 
-	public static Str getStrFromId(Integer num) {
-		
-		String line = "0 * 0 * 0/0/0 * 0/0/0 * 0 * 0";
-		Integer c = 0;
-		Str strat = new Str();
-
-		try {
-			BufferedReader in = new BufferedReader(new FileReader(dataFile));
-			while (c < num) {
-				line = in.readLine();
-				c++;
-			}
-			in.close();
-		} catch (IOException e) {
-			Log.e(TAG, "getStrFromId error : " + e.getLocalizedMessage());
-			return strat;
-		}
-		strat.setStrFromString(line);
-		
-		return strat;
+	public static Str getStrFromId(Integer num, Context context) {
+		databaseHandler db = new databaseHandler(context);
+		return db.getStr(num);
 	}
 
-	public static String getStrFromIdToString(Integer num) {
-		String line = null;
-		Integer c = 0;
-
-		try {
-			BufferedReader in = new BufferedReader(new FileReader(dataFile));
-			while (c < num) {
-				line = in.readLine();
-				c++;
-			}
-			in.close();
-		} catch (IOException e) {
-			Log.e(TAG, "getStrToString error : " + e.getLocalizedMessage());
-		}
-		return line;
+	public static List<Str> getStrList(Context context) {
+		databaseHandler db = new databaseHandler(context);
+		return db.getAllStr();
 	}
 
-	public static List<Str> getStrList() {	
-		List<Str> list = new ArrayList<Str>();
-		Integer N = getLengh();
-		
-		for (int i = 0 ; i < N ; i++){
-			list.add(getStrFromId(i+1));
-		}
-		return list;
-	}
-	
-	public int getVathmo(){
+	public int getVathmo() {
 		Float totalPososto = getPososto();
 		int vath = 0;
 
@@ -260,7 +213,7 @@ public class Str extends HashMap {
 		return vath;
 	}
 
-	public int getImg(){
+	public int getImg() {
 		Float totalPososto = getPososto();
 		int img = 0;
 
@@ -303,7 +256,7 @@ public class Str extends HashMap {
 		}
 		return img;
 	}
-	
+
 	public void setName(String nam) {
 		this.name = nam;
 	}
@@ -351,136 +304,24 @@ public class Str extends HashMap {
 		this.setFilaki(Integer.parseInt(line.split(" * ")[10]));
 	}
 
-	public static Integer getLengh() {
-		byte[] c = new byte[1024];
-		int count = 0;
-		int readChars = 0;
-		InputStream is = null;
-		try {
-			is = new BufferedInputStream(new FileInputStream(dataFile));
-		} catch (FileNotFoundException e) {
-			Log.e(TAG, "getLengh error. FileNotFound : " + e.getLocalizedMessage());
-			return 0;
-		}
-		try {
-			while ((readChars = is.read(c)) != -1) {
-				for (int i = 0; i < readChars; ++i) {
-					if (c[i] == '\n')
-						++count;
-				}
-			}
-		} catch (IOException e) {
-			Log.e(TAG, "getLengh error B : " + e.getLocalizedMessage());
-			return 0;
-		}
-		return count;
+	public void writeStr(Context context) {
+		databaseHandler db = new databaseHandler(context);
+		db.addStr(this);
 	}
 
-	public void writeStr() {
-
-		try {
-			File f = new File(dataFile);
-			if (f.exists()) {
-				Log.e(TAG, "writeStr File exists : " + dataFile);
-			} else {
-				Log.e(TAG,
-						"writeStr File NOT exist! absolutepath : "
-								+ f.getAbsolutePath());
-				FileOutputStream out = new FileOutputStream(dataFile, true);
-				out.close();
-			}
-		} catch (java.io.FileNotFoundException e) {
-			Log.e(TAG, "writeStr FileNotFoundException error : "
-							+ e.getLocalizedMessage());
-		} catch (IOException e) {
-			Log.e(TAG, "writeStr IOException : " + e.getLocalizedMessage());
-		}
-
-		String data = this.id + " * " + this.name.replace(' ', '_') + " * "
-				+ this.dateIn + " * " + this.dateOut + " * " + this.adeia
-				+ " * " + this.filaki + "\n";
-
-		try {
-			BufferedWriter out = new BufferedWriter(new FileWriter(dataFile,
-					true));
-			out.write(data);
-			out.close();
-		} catch (IOException e) {
-			Log.e(TAG, "writeStr error B : " + e.getLocalizedMessage());
-		}
-		correctData();
-	}
-
-	public boolean delete() {
-		if (deleteStrFromId(this.getId()))
+	public boolean delete(Context context) {
+		if (deleteStrFromId(this.getId(), context))
 			return true;
 		return false;
 	}
-
-	public static boolean deleteStrFromId(Integer num) {
-		String line = null;
-
-		if (getLengh() == 0)
-			return false;
-
-		/* Copy data.txt to data.tmp.txt without the line with id num */
-
-		try {
-			BufferedReader in = new BufferedReader(new FileReader(dataFile));
-			BufferedWriter out = new BufferedWriter(new FileWriter(dataFile
-					+ ".tmp", true));
-			while ((line = in.readLine()) != null) {
-				if (num != Integer.parseInt(line.split(" * ")[0])) {
-					out.write(line + "\n");
-				}
-			}
-			in.close();
-			out.close();
-		} catch (IOException e) {
-			Log.e(TAG, "deleteStrFromId error : " + e.getLocalizedMessage());
-			return false;
-		}
-
-		/* Rename data.tmp.txt to data.txt */
-
-		File tmp = new File(dataFile + ".tmp");
-		File txt = new File(dataFile);
-		if (tmp.renameTo(txt) == false)
-			return false;
-
-		correctData();
-
+	
+	public static boolean deleteStrFromId(Integer num, Context context) { 
+		databaseHandler db = new databaseHandler(context);
+		db.deleteStr(num);
 		return true;
 	}
 
-	public static void correctData() {
-		String line = null;
-		Integer c = 0;
-		Str strat = new Str();
-
-		try {
-			BufferedReader in = new BufferedReader(new FileReader(dataFile));
-			BufferedWriter out = new BufferedWriter(new FileWriter(dataFile
-					+ ".tmp", true));
-			while ((line = in.readLine()) != null) {
-				strat.setStrFromString(line);
-				strat.setId(++c);
-				out.write(strat.toString() + "\n");
-			}
-			in.close();
-			out.close();
-		} catch (IOException e) {
-			Log.e(TAG, "correctData error : " + e.getLocalizedMessage());
-		}
-
-		/* Rename data.tmp.txt to data.txt */
-
-		File tmp = new File(dataFile + ".tmp");
-		File txt = new File(dataFile);
-		tmp.renameTo(txt);
-	}
-	
-	public static int getResourceVathmo(int vathmos){
+	public static int getResourceVathmo(int vathmos) {
 		int va = 0;
 		switch (vathmos) {
 		case 0:

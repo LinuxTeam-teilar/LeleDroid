@@ -33,7 +33,7 @@ public class ChartView extends Activity {
 		if (id <= 0) {
 			finish();
 		} else {
-			Str str = Str.getStrFromId(id);
+			Str str = Str.getStrFromId(id, getApplicationContext());
 			makeChart(str.getName(), str.getAdeia(), str.getRestDays(), str.getPastDays());
 		}         
 	}

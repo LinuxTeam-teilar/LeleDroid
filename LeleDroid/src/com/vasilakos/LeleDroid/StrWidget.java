@@ -55,7 +55,7 @@ public class StrWidget extends AppWidgetProvider {
 		RemoteViews views = new RemoteViews(context.getPackageName(),
 				R.layout.widget);
 
-		Str theOne = Str.getStrFromId(id);
+		Str theOne = Str.getStrFromId(id, context);
 		String vathmos = context.getResources().getString(theOne.getVathmo());
 		String onoma = theOne.getName();
 		String meres = theOne.getRestDays().toString();

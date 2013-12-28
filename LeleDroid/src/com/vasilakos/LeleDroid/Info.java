@@ -52,6 +52,15 @@ public class Info extends Activity {
 		link.setMovementMethod(LinkMovementMethod.getInstance());
 
 		ImageView img = (ImageView) findViewById(R.id.infoImage);
+		
+		img.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Info.this.openOptionsMenu();
+			}
+		});
+		
 		img.setOnLongClickListener(new View.OnLongClickListener() {
 
 			public boolean onLongClick(View v) {
@@ -105,18 +114,20 @@ public class Info extends Activity {
 				});
 		alertbox.show();
 	}
-	
+
 	public void shareButtonClicked() {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 
 		intent.setType("text/plain");
 		intent.putExtra(Intent.EXTRA_SUBJECT,
 				getResources().getString(R.string.share));
-		intent.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.shareAppText) + " " + getResources().getString(R.string.site) );
+		intent.putExtra(Intent.EXTRA_TEXT,
+				getResources().getString(R.string.shareAppText) + " "
+						+ getResources().getString(R.string.site));
 
 		startActivity(Intent.createChooser(intent, getString(R.string.share)));
 	}
-	
+
 	public void onRateButtonClick(View v) {
 		Intent intent = new Intent(Intent.ACTION_VIEW);
 		intent.setData(Uri.parse("market://details?id=com.vasilakos.LeleDroid"));
@@ -127,8 +138,8 @@ public class Info extends Activity {
 		menu.add(0, 1, 0, R.string.licence).setIcon(
 				R.drawable.ic_menu_info_details);
 		menu.add(0, 2, 0, R.string.share).setIcon(R.drawable.ic_menu_share);
-		menu.add(0, 3, 0, R.string.vathmoiInfo).setIcon(
-				R.drawable.ic_menu_view);
+		menu.add(0, 3, 0, R.string.vathmoiInfo)
+				.setIcon(R.drawable.ic_menu_view);
 		menu.add(0, 4, 0, R.string.rate).setIcon(R.drawable.ic_menu_star);
 		return true;
 	}

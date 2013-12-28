@@ -6,10 +6,9 @@ import java.util.Calendar;
 import java.util.Date;
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.DatePickerDialog.OnDateSetListener;
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,11 +19,14 @@ public class Properties extends Activity {
 	EditText str_outdate;
 	EditText str_adeia;
 	EditText str_filaki;
+	
+	String DATE_FORMAT = "dd/MM/yyyy";
 
 	static final int DATE_DIALOG_ID = 0;
 
-	private EditText activeDateDisplay;
-	private Calendar activeDate;
+	private Calendar startDate;
+	private Calendar endDate;
+
 	int id;
 
 	@Override
@@ -39,87 +41,63 @@ public class Properties extends Activity {
 		str_adeia = (EditText) findViewById(R.id.str_adeia_et);
 		str_filaki = (EditText) findViewById(R.id.str_filaki_et);
 
-		str_indate.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				showDateDialog(str_indate, Calendar.getInstance());
-			}
-		});
+		
 
-		str_outdate.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				showDateDialog(str_outdate, Calendar.getInstance());
-			}
-		});
-
-		updateDisplay(str_indate, Calendar.getInstance());
-		updateDisplay(str_outdate, Calendar.getInstance());
-
+		startDate = Calendar.getInstance();
+		endDate = Calendar.getInstance();
 		if (b == null) {
 			id = -1;
+			
+			str_indate.setText(startDate.get(Calendar.DAY_OF_MONTH) + "/"
+					+ startDate.get(Calendar.MONTH) + "/"
+					+ startDate.get(Calendar.YEAR));
+			str_outdate.setText(endDate.get(Calendar.DAY_OF_MONTH) + "/"
+					+ endDate.get(Calendar.MONTH) + "/"
+					+ endDate.get(Calendar.YEAR));
 		} else {
 			id = b.getInt("id");
-			Str str = Str.getStrFromId(id);
+			Str str = Str.getStrFromId(id, this);
 			str_name.setText(str.getName());
 			str_indate.setText(str.getDateIn());
 			str_outdate.setText(str.getDateOut());
 			str_adeia.setText(str.getAdeia().toString());
 			str_filaki.setText(str.getFilaki().toString());
+			
+			SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT, getResources().getConfiguration().locale);
+	        Date mydatein = null;
+	        Date mydateout = null;
+			try {
+				mydatein = sdf.parse(str.getDateIn());
+			} catch (ParseException e1) {
+				mydatein = new Date();
+			}
+			startDate.setTime(mydatein);
+			try {
+				mydateout = sdf.parse(str.getDateOut());
+			} catch (ParseException e1) {
+				mydateout = new Date();
+			}
+			endDate.setTime(mydateout);
 		}
-	}
 
-	private void updateDisplay(EditText dateDisplay, Calendar date) {
-		dateDisplay.setText(new StringBuilder()
-				.append(date.get(Calendar.DAY_OF_MONTH)).append("/")
-				.append(date.get(Calendar.MONTH) + 1).append("/")
-				.append(date.get(Calendar.YEAR)).append(" "));
+		str_indate.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				new DatePickerDialog(Properties.this, dateIn, startDate
+						.get(Calendar.YEAR), startDate.get(Calendar.MONTH),
+						startDate.get(Calendar.DAY_OF_MONTH)).show();
+			}
+		});
 
-	}
-
-	public void showDateDialog(EditText dateDisplay, Calendar date) {
-		activeDateDisplay = dateDisplay;
-		activeDate = date;
-		showDialog(DATE_DIALOG_ID);
-	}
-
-	private OnDateSetListener dateSetListener = new OnDateSetListener() {
-		public void onDateSet(DatePicker view, int year, int monthOfYear,
-				int dayOfMonth) {
-			activeDate.set(Calendar.YEAR, year);
-			activeDate.set(Calendar.MONTH, monthOfYear);
-			activeDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-			updateDisplay(activeDateDisplay, activeDate);
-			unregisterDateDisplay();
-		}
-	};
-
-	private void unregisterDateDisplay() {
-		activeDateDisplay = null;
-		activeDate = null;
-	}
-
-	@Override
-	protected Dialog onCreateDialog(int id) {
-		switch (id) {
-		case DATE_DIALOG_ID:
-			return new DatePickerDialog(this, dateSetListener,
-					activeDate.get(Calendar.YEAR),
-					activeDate.get(Calendar.MONTH),
-					activeDate.get(Calendar.DAY_OF_MONTH));
-		}
-		return null;
-	}
-
-	@Override
-	protected void onPrepareDialog(int id, Dialog dialog) {
-		super.onPrepareDialog(id, dialog);
-		switch (id) {
-		case DATE_DIALOG_ID:
-			((DatePickerDialog) dialog).updateDate(
-					activeDate.get(Calendar.YEAR),
-					activeDate.get(Calendar.MONTH),
-					activeDate.get(Calendar.DAY_OF_MONTH));
-			break;
-		}
+		str_outdate.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				new DatePickerDialog(Properties.this, dateOut, endDate
+						.get(Calendar.YEAR), endDate.get(Calendar.MONTH),
+						endDate.get(Calendar.DAY_OF_MONTH)).show();
+			}
+		});
+		
 	}
 
 	public void okButtonClicked(View v) {
@@ -136,7 +114,7 @@ public class Properties extends Activity {
 		Str str = null;
 
 		if (id != -1) {
-			Str.deleteStrFromId(id);
+			Str.deleteStrFromId(id, this);
 		}
 		str = new Str();
 		str.setName(str_name.getText().toString().replace(' ', '_'));
@@ -144,8 +122,8 @@ public class Properties extends Activity {
 		str.setDateOut(str_outdate.getText().toString());
 		str.setAdeia(Integer.parseInt(str_adeia.getText().toString()));
 		str.setFilaki(Integer.parseInt(str_filaki.getText().toString()));
-		
-		str.writeStr();
+
+		str.writeStr(this);
 
 		finish();
 	}
@@ -189,7 +167,7 @@ public class Properties extends Activity {
 
 	public boolean checkDates(String dateIn, String dateOut) {
 		Toast toast = null;
-		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", getResources().getConfiguration().locale);
 		Date date1 = null;
 		Date date2 = null;
 
@@ -216,4 +194,32 @@ public class Properties extends Activity {
 		}
 		return true;
 	}
+
+	DatePickerDialog.OnDateSetListener dateIn = new DatePickerDialog.OnDateSetListener() {
+		@Override
+		public void onDateSet(DatePicker view, int year, int monthOfYear,
+				int dayOfMonth) {
+			startDate.set(Calendar.YEAR, year);
+			startDate.set(Calendar.MONTH, monthOfYear);
+			startDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+			
+		    SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT, getResources().getConfiguration().locale);
+
+		    str_indate.setText(sdf.format(startDate.getTime()));
+		}
+	};
+	
+	DatePickerDialog.OnDateSetListener dateOut = new DatePickerDialog.OnDateSetListener() {
+		@Override
+		public void onDateSet(DatePicker view, int year, int monthOfYear,
+				int dayOfMonth) {
+			endDate.set(Calendar.YEAR, year);
+			endDate.set(Calendar.MONTH, monthOfYear);
+			endDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+			
+		    SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT, getResources().getConfiguration().locale);
+
+		    str_outdate.setText(sdf.format(endDate.getTime()));
+		}
+	};
 }

@@ -223,7 +223,9 @@ public class StrWidgetConfig extends Activity {
 	
 	void setStrSpinner(){
 		Spinner strSpin = (Spinner) findViewById(R.id.strSpinner);
-		final Integer N = Str.getLengh();
+		databaseHandler db = new databaseHandler(this);
+
+		final Integer N = db.getStrCount();
 		if (N == 0) {
 			Toast.makeText(getApplicationContext(), R.string.emptyList,
 					Toast.LENGTH_LONG).show();
@@ -231,7 +233,7 @@ public class StrWidgetConfig extends Activity {
 		}
 		String[] strList = new String[N];
 		for (int i = 0; i < N; i++) {
-			strList[i] = Str.getStrFromId(i + 1).getName();
+			strList[i] = Str.getStrFromId(i + 1, this).getName();
 		}
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, strList);

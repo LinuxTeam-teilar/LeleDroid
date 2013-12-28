@@ -27,7 +27,7 @@ public class leleDroid extends Activity {
 		super.onStart();
 		ListView strList = (ListView) findViewById(R.id.list);
 
-		List<Str> strs = Str.getStrList();
+		List<Str> strs = Str.getStrList(this);
 		ListAdapter adapter = new StrListAdapter(this, strs,
 				android.R.layout.simple_list_item_2, new String[] {
 						Str.KEY_NAME, Str.KEY_DATE }, new int[] {
@@ -98,7 +98,7 @@ public class leleDroid extends Activity {
 				public void onClick(DialogInterface dialog, int which) {
 					switch (which) {
 					case DialogInterface.BUTTON_POSITIVE:
-						if (Str.deleteStrFromId(menuInfo.position + 1)) {
+						if (Str.deleteStrFromId(menuInfo.position + 1, getApplicationContext())) {
 							Intent intent = getIntent();
 							finish();
 							startActivity(intent);
